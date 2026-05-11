@@ -2969,9 +2969,822 @@ Một ví dụ về mô phỏng cho thấy các hiệu ứng hướng được t
 
 Cuối cùng, có thể thú vị khi suy đoán về lý do tại sao hiệu ứng hướng dường như thay đổi đối với các oxide rất mỏng được mọc ở áp suất `O₂` riêng phần thấp và cũng đối với các oxide hơi nước áp suất cao được mọc ở nhiệt độ thấp. Hai điều kiện này đại diện cho hai cực của tốc độ mọc oxide, một cực cực kỳ chậm và cực kia cực kỳ nhanh. Trong trường hợp trước, chúng ta đã thấy rằng động học mọc khác đối với các oxide mỏng được mọc trong `O₂` khô. Vì cơ chế dường như khác nhau trong chế độ này, có lẽ không quá ngạc nhiên khi các hiệu ứng khác như sự phụ thuộc hướng cũng thay đổi. Trong trường hợp các oxide hơi nước áp suất cao, Ligenza quan sát thấy bề mặt `(100)` oxy hóa nhanh hơn bề mặt `(111)` ở `800°C` và thấp hơn. Các thí nghiệm này được thực hiện ở áp suất lên đến `150 atm`, vì vậy tốc độ mọc cực kỳ cao. Chúng ta sẽ thấy trong Mục `6.5.7` về động học mọc `2D` rằng sự giải phóng các ứng suất được tạo ra trong các lớp `SiO₂` diễn ra thông qua dòng chảy nhớt đàn hồi (`viscoelastic flow`) của lớp oxide. Về cơ bản, thủy tinh chảy khi được mọc để giải phóng các ứng suất do sự khác biệt thể tích giữa oxide và silicon từ đó oxide được mọc. Ở nhiệt độ thấp, sự giải phóng này khó khăn hơn vì oxide không thể chảy dễ dàng. Nó cũng khó khăn hơn nếu oxide đang mọc rất nhanh vì có ít thời gian hơn để oxide giải phóng trước khi các lớp mới mọc. Trong các thí nghiệm của Ligenza, do đó có thể là các ứng suất rất cao đã tích lũy trong các oxide đang mọc. Đây có thể là nguồn gốc của các hiệu ứng hướng bất thường mà Ligenza quan sát. Các ứng suất tích lũy và dòng oxide để giải phóng các ứng suất đó hoàn toàn có thể phụ thuộc vào hướng tinh thể đế. Có lẽ các công việc tương lai sẽ giải quyết các vấn đề này.
 
+## 6.5.6 Động học tăng trưởng trong môi trường hỗn hợp
 
+Trong công nghệ silicon, đôi khi gặp những tình huống mà các môi trường hỗn hợp được sử dụng trong một quá trình oxy hóa. Ví dụ phổ biến nhất là hỗn hợp `H₂O` và `O₂`. Điều này xảy ra khi `H₂` và `O₂` được cho phản ứng để tạo thành `H₂O` trong các hệ thống pyrogenic hiện đại. Luôn luôn có một lượng `O₂` dư để bảo đảm rằng không có `H₂` dư ở đầu xả của lò. Kết quả là trong lò tồn tại một hỗn hợp gồm `H₂O` (thường khoảng `95%`) và `O₂` (thường khoảng `5%`). Trong các trường hợp khác, các nồng độ nhỏ `HCl` đôi khi được thêm vào chất oxy hóa `O₂` vì người ta nhận thấy điều này giúp làm giảm mật độ khuyết tật oxide và giảm mức nhiễm bẩn. `HCl` nhiều khả năng có ích vì nó phản ứng trong lò để tạo ra `Cl₂` và `H₂O` theo phản ứng
 
+---
 
+> **[Biểu thức hóa học]**
+>
+> $$
+> 4HCl + O_2 \leftrightarrow 2H_2O + 2Cl_2
+> \tag{6.41}
+> $$
+
+---
+
+và `Cl₂` dễ dàng phản ứng với các kim loại vết và các chất nhiễm bẩn khác trong lò để tạo ra các clorua bay hơi như sản phẩm phụ. Trong một số trường hợp, các nguồn `Cl` khác cũng được dùng, chẳng hạn như trichloroethane ở dạng lỏng, nhưng phản ứng xảy ra là tương tự.
+
+Việc mô hình hóa các môi trường hỗn hợp có thể được tiếp cận theo cách trực tiếp, nếu giả sử rằng mỗi chất oxy hóa tác động độc lập. Mô hình Han và Helms mà chúng ta đã thảo luận cho động học oxy hóa cho phép các quá trình song song độc lập [6.15, 6.16].
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> \frac{dx_O}{dt}=
+> \frac{B_1}{2x_O + A_1}
+> +
+> \frac{B_2}{2x_O + A_2}
+> \tag{6.32}
+> $$
+
+---
+
+Việc chọn `B₁` và `A₁` tương ứng với một trong các chất oxy hóa (ví dụ `H₂O`) và chọn `B₂` và `A₂` tương ứng với chất oxy hóa còn lại (ví dụ `O₂`) cho phép tính toán độ dày oxide thu được. Lưu ý rằng mỗi giá trị `B` và `B/A` phải được hiệu chỉnh theo áp suất riêng phần thích hợp của chất oxy hóa tương ứng, sử dụng các quan hệ đã mô tả trong Mục `6.5.4`.
+
+Cách tiếp cận đơn giản này hoạt động tốt trong một số trường hợp và kém trong các trường hợp khác, có lẽ bởi vì giả thiết độc lập phù hợp hơn ở một số trường hợp so với các trường hợp khác. Các hỗn hợp `H₂O/O₂` có thể được mô tả bởi Phương trình `6.32` ở mức xấp xỉ bậc nhất [6.26], mặc dù có một số bằng chứng cho thấy các phản ứng của `H₂O` và `O₂` tại mặt tiếp xúc oxy hóa không hoàn toàn độc lập (`B/A` dường như hơi khác so với những gì cách tiếp cận trên gợi ra). Các hỗn hợp `H₂O/HCl` có thể được mô tả bởi Phương trình `6.32` vì trong trường hợp này `HCl` dường như chỉ làm pha loãng `H₂O` và không đóng vai trò nào trong quá trình oxy hóa. Điều này có lẽ là do `H₂O` và `HCl` không phản ứng đáng kể trong lò. Kết quả là, chỉ cần một hạng trong Phương trình `6.32`, với các hằng số tốc độ tương ứng với `H₂O` tại áp suất riêng phần thích hợp [6.27]. Các hỗn hợp `O₂/HCl` không được mô tả tốt bởi Phương trình `6.32`. Trong trường hợp này, các tương tác rõ ràng giữa các loài oxy hóa xảy ra. `Cl` sinh ra bởi Phương trình `6.41` được biết là được kết hợp vào màng `SiO₂` đang tăng trưởng (chủ yếu ở gần mặt tiếp xúc `Si/SiO₂`). Các giá trị `B` và `B/A` được trích xuất từ dữ liệu động học tăng trưởng tăng đơn điệu theo phần trăm `HCl`, nhưng theo một cách chưa được hiểu rõ. Các chương trình mô phỏng công nghệ như `SUPREM IV` nói chung phải dùng đến các bảng tra cứu thực nghiệm để mô hình hóa các quá trình này. Các hằng số tốc độ đơn giản được biểu diễn là
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> \frac{B}{A}=\left(\frac{B}{A}\right)_i \delta,
+> \qquad
+> B=(B)_i \chi
+> \tag{6.42}
+> $$
+
+---
+
+trong đó `δ` và `χ` là các hàm của nồng độ `HCl` trong môi trường lò, và được xác định bằng thực nghiệm. Các phản ứng môi trường hỗn hợp khác cũng có thể được xử lý theo cách thực nghiệm tương tự, mặc dù những phản ứng chính đã được khảo sát bằng thực nghiệm là các phản ứng được mô tả ở trên.
+
+## 6.5.7 Động học tăng trưởng `SiO₂` 2D
+
+Từ nhiều năm nay đã biết rằng các cấu trúc silicon có hình dạng oxy hóa khác với các bề mặt phẳng đơn giản. Điều này không có nhiều tầm quan trọng về mặt công nghệ cho đến khoảng năm `1980`, khi các cấu trúc trở nên đủ nhỏ để các hiệu ứng `2D`, và thậm chí `3D`, bắt đầu trở nên đáng chú ý. Chúng ta đã thấy một ví dụ đơn giản về điều này trong **Hình 6.4**, minh họa quá trình `LOCOS`, và sự tăng trưởng `2D` của các lớp oxide bên dưới các mép của các lớp `Si₃N₄`. Ngay từ khi các hiệu ứng này lần đầu được quan sát, nguồn gốc của chúng đã được cho là đúng đắn do sự giãn nở thể tích mà `SiO₂` trải qua khi tăng trưởng. Trước đây chúng ta đã thấy rằng `SiO₂` mọc nhô lên phía trên bề mặt silicon khi hình thành, và sự giãn nở thể tích liên quan lớn hơn `2:1`. Có lẽ dễ hình dung rằng oxy hóa xảy ra trong một góc bị gò bó, nơi sự giãn nở thể tích khó khăn hơn, có thể khác với oxy hóa trên một bề mặt phẳng.
+
+Một sự hiểu biết rõ ràng về các cơ chế vật lý chịu trách nhiệm cho các hiệu ứng này chỉ mới xuất hiện gần đây từ một loạt thí nghiệm rất tinh tế do Kao và cộng sự thực hiện [6.28, 6.29]. Trong các thí nghiệm đó, một số cấu trúc silicon có hình dạng được chuẩn bị bằng cách khắc khô dị hướng các wafer silicon. Sau đó các cấu trúc được oxy hóa dưới nhiều điều kiện khác nhau và độ dày oxide thu được được đo bằng các kỹ thuật `SEM`. Dữ liệu thu được cho độ dày oxide như một hàm của bán kính cong của cấu trúc đang được oxy hóa. **Hình 6.28 - 6.30** minh họa cấu trúc thực nghiệm và một số kết quả.
+
+---
+
+**Hình 6.28:** Quy trình thực nghiệm được sử dụng trong các thí nghiệm oxy hóa `2D` của Kao [6.28, 6.29]. Các wafer silicon được khắc plasma để tạo ra nhiều cấu trúc có hình dạng khác nhau, bao gồm hình trụ minh họa ở `a)`. Phần `b)` cho thấy mặt cắt và hình nhìn từ trên của hình trụ. Ở `c)`, cấu trúc đã được oxy hóa và sau đó được phủ một lớp polysilicon `CVD`. Ở `d)`, cấu trúc đã được mài hạ xuống để hình nhìn từ trên cho thấy độ dày oxide trên các mặt bên của hình trụ.
+
+---
+
+---
+
+**Hình 6.29:** Kết quả thực nghiệm điển hình từ Kao [6.28, 6.29]. Hình vẽ bên phải gắn nhãn cho cấu trúc được hiển thị thực nghiệm ở bên trái. Oxide mỏng hơn tại cả các góc lõm và các góc lồi so với ở các vùng phẳng. In lại với sự cho phép của `IEEE`.
+
+---
+
+Có thể rút ra một số quan sát thú vị từ các kết quả của Kao và cộng sự. Thứ nhất, sự kìm hãm là một hiệu ứng rất đáng kể tại các góc sắc — tới một hệ số hai về độ dày oxide đối với các màng oxide danh định `500 nm`. Thứ hai, sự kìm hãm rõ rệt hơn nhiều đối với các quá trình oxy hóa ở nhiệt độ thấp so với ở nhiệt độ cao. Thực tế, hầu như không có hiệu ứng góc nào đối với các quá trình oxy hóa thực hiện ở `1200°C`. Cuối cùng, các góc phía trong (lõm) thể hiện hiệu ứng rõ hơn các góc phía ngoài (lồi), mặc dù cả hai đều bị kìm hãm đáng kể so với các bề mặt phẳng.
+
+---
+
+**Hình 6.30:** Dữ liệu thực nghiệm điển hình theo Kao [6.28, 6.29]. Độ dày oxide được vẽ theo bán kính cong của cấu trúc đang được oxy hóa. Đối với mỗi nhiệt độ, khoảng `500 nm` oxide đã được tăng trưởng trên một bề mặt phẳng (`1/r = 0`). Các kết quả này là cho oxy hóa `H₂O`. Các kết quả tương tự cũng được tìm thấy đối với `O₂`. Lưu ý sự kìm hãm của quá trình oxy hóa tại các góc sắc (hơn `2` lần trong một số trường hợp).
+
+---
+
+Một số cơ chế vật lý là quan trọng trong việc hiểu các kết quả này.
+
+1. **Hướng tinh thể:** Các bề mặt có hình dạng bao gồm nhiều hướng bề mặt khác nhau. Như chúng ta đã thấy trong Mục `6.5.5`, hướng ảnh hưởng đến tốc độ oxy hóa trong chế độ oxide mỏng hay chế độ tuyến tính. Hiệu ứng này có thể được mô hình hóa theo cách trực tiếp thông qua Phương trình `6.40`, mặc dù cần có các giá trị của hằng số nhân trên `B/A` cho mọi hướng.
+
+2. **Khuếch tán chất oxy hóa 2D:** Ở các vùng góc và các cấu trúc có hình dạng khác, sự vận chuyển chất oxy hóa đến mặt tiếp xúc `Si/SiO₂` là một bài toán vận chuyển `2D`, hoặc thậm chí `3D`. Vì oxide là vô định hình, các hệ số khuếch tán của `O₂` hay `H₂O` không nên phụ thuộc vào hướng, nhưng nhìn chung cần các kỹ thuật số để giải phương trình khuếch tán trong nhiều chiều.
+
+3. **Ứng suất do giãn nở thể tích:** Các lớp oxide hình thành trên silicon chịu ứng suất nén đáng kể. Ứng suất này là do sự giãn nở thể tích diễn ra trong quá trình oxy hóa và do sự khác biệt giữa các hệ số giãn nở nhiệt của `Si` và `SiO₂`, vốn gây ra thêm ứng suất khi các wafer được làm nguội từ nhiệt độ oxy hóa trở về nhiệt độ phòng. Trên các bề mặt silicon có hình dạng, các ứng suất này về nguyên lý có thể lớn hơn nhiều so với trên một bề mặt phẳng chỉ đơn giản vì sự giãn nở thể tích bị gò bó theo hình học trên các cấu trúc có hình dạng. Các ứng suất như vậy về nguyên tắc có thể ảnh hưởng đến cả sự vận chuyển chất oxy hóa qua `SiO₂` và phản ứng tại mặt tiếp xúc `Si/SiO₂`.
+
+Để mô hình hóa các hiệu ứng ứng suất này, Kao và cộng sự đã đề xuất các sửa đổi sau đây đối với các tham số thường được dùng trong mô hình tuyến tính-parabol.
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> k_S(\text{stress}) =
+> k_S
+> \exp\left(-\frac{\sigma_n V_R}{kT}\right)
+> \exp\left(-\frac{\sigma_t V_T}{kT}\right)
+> \tag{6.43}
+> $$
+>
+> $$
+> D(\text{stress}) =
+> D \exp\left(-\frac{PV_D}{kT}\right)
+> \tag{6.44}
+> $$
+>
+> $$
+> C^*(\text{stress}) =
+> C^* \exp\left(-\frac{PV_S}{kT}\right)
+> \tag{6.45}
+> $$
+
+---
+
+trong đó `k_S` là tốc độ phản ứng chuẩn tại mặt tiếp xúc, `σ_n` là ứng suất pháp tuyến với mặt tiếp xúc đang tăng trưởng, `σ_t` là ứng suất tiếp tuyến với mặt tiếp xúc đang tăng trưởng, `D` là hệ số khuếch tán chuẩn của chất oxy hóa (tại `1 Atm`), `C^*` là độ hòa tan chuẩn của chất oxy hóa được dùng trong các Phương trình `6.23` và `6.24`, còn `P` là áp suất thủy tĩnh trong oxide đang tăng trưởng. `V_R`, `V_T`, `V_D` và `V_S` được xem là các thể tích hoạt hóa cho phụ thuộc ứng suất và cần được coi là các tham số khớp. Chúng được sử dụng trong phần cài đặt mô hình này của `SUPREM IV`.
+
+Tham số oxide cuối cùng cần thiết để tính toán sự tăng trưởng trên các bề mặt có hình dạng là độ nhớt của oxide. `SiO₂` là một loại thủy tinh và có thể làm thư giãn một phần các ứng suất tích lũy trong quá trình oxy hóa bằng chảy nhớt-đàn hồi. Thực tế, các ứng suất có thể tích lũy trong quá trình oxy hóa lớn đến mức bản thân độ nhớt của oxide cũng cần được mô hình hóa như một hàm của ứng suất. Một quan hệ có dạng sau đây đã được thấy là cho sự phù hợp tốt với thực nghiệm [6.30, 6.31]
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> \eta(\text{stress}) =
+> \eta(T)
+> \frac{\sigma_s V_C / 2kT}
+> {\sinh\left(\sigma_s V_C / 2kT\right)}
+> \tag{6.46}
+> $$
+
+---
+
+trong đó `η(T)` là độ nhớt oxide không ứng suất, phụ thuộc nhiệt độ, `σ_s` là ứng suất cắt trong oxide, và `V_C` một lần nữa là một tham số khớp.
+
+Phần lớn mối quan tâm trong những năm gần đây về việc mở rộng các mô hình oxy hóa đã được thúc đẩy bởi nhu cầu mô hình hóa chính xác các quá trình cách ly tiên tiến. `LOCOS`, `poly-buffered LOCOS`, các cấu trúc rãnh nông và các cấu trúc tương tự đều liên quan đến oxy hóa nhiệt của các cấu trúc có hình dạng. Kết quả là, sự giãn nở thể tích trong quá trình oxy hóa, các tham số oxy hóa phụ thuộc ứng suất và độ nhớt oxide đều đã trở thành những yếu tố quan trọng bậc nhất. Tuy nhiên, vượt ra ngoài các tính chất của bản thân `SiO₂`, nhiều cấu trúc cách ly hiện đại còn liên quan đến các vật liệu khác như polysilicon và `Si₃N₄`. Do đó, các tính chất nhớt-đàn hồi của các vật liệu này cũng trở nên quan trọng.
+
+Bản chất nhớt phi tuyến của các màng oxide ở nhiệt độ cao đã được Rafferty tham số hóa [6.31] như đã mô tả ở trên. Các công trình tiếp theo xác định rằng các màng nitride mỏng có tính nhớt ở nhiệt độ cao, với độ nhớt phụ thuộc vào thành phần stoichiometric của màng [6.32]. Các công trình tương tự với các màng polysilicon mỏng cho thấy có thể gán cho polysilicon hành vi độ nhớt phức tạp hơn, có thể phụ thuộc vào kích thước hạt trong màng.
+
+Vì hình dạng của oxide đang tăng trưởng thay đổi theo thời gian, `k_S(stress)`, `D(stress)` và `η(stress)` đều thay đổi theo thời gian trong suốt quá trình oxy hóa. Kết quả là, mô phỏng số là cần thiết để triển khai các mô hình này. Điều này đã được thực hiện trong `SUPREM IV`, vốn có thể dự đoán thành công hình dạng oxide phụ thuộc thời gian và các mức ứng suất tồn tại trong cả oxide lẫn silicon nền bên dưới [6.31]. Các tham số điển hình cho mô hình oxy hóa phụ thuộc ứng suất của `SUPREM IV` được trình bày trong **Bảng 6.4** dưới đây cho các quá trình oxy hóa ướt [6.30 - 6.32]. Một số tham số này là các tham số khớp (`V_R`, `V_D`, `V_S`, `V_T` và đặc biệt là `V_C`) và các giá trị của chúng không nên được xem là mang nhiều ý nghĩa vật lý. Việc `V_S ≈ 0` hàm ý rằng `C^*` không phụ thuộc mạnh vào ứng suất. Một ví dụ về tác động của việc đưa các tham số phụ thuộc ứng suất vào trong mô phỏng oxy hóa được trình bày trong **Hình 6.31**. Mô phỏng bên trái không bao gồm bất kỳ phụ thuộc ứng suất nào, trong khi ở bên phải các kiểu mô hình cho độ nhớt và phụ thuộc ứng suất được thảo luận ở trên đã được đưa vào. Lưu ý rằng phần `bird’s beak` kéo dài xa hơn nhiều bên dưới mặt nạ `Si₃N₄` ở phía bên trái. Nếu không có các hiệu ứng ứng suất, tốc độ oxy hóa không bị kìm hãm dưới lớp nitride che.
+
+---
+
+**[Bảng thông số]**
+
+| Tham số | Giá trị |
+|---|---|
+| `V_R` | `0.0125 nm^3` |
+| `V_D` | `0.0065 nm^3` |
+| `V_S, V_T` | `0` |
+| `V_C` | `0.3 nm^3 @ 850°C`<br>`0.72 nm^3 @ 1050°C` |
+| `η(T) - SiO₂` | `3.13 × 10^10 exp(2.19 eV/kT) poise` |
+| `η(T) - Si₃N₄` | `4.77 × 10^10 exp(1.12 eV/kT) poise` |
+
+**Bảng 6.4:** Các giá trị tham số điển hình trong mô hình oxy hóa phụ thuộc ứng suất của `SUPREM IV`.
+
+---
+
+---
+
+**Hình 6.31:** Ví dụ về một mô phỏng oxy hóa cho thấy các ảnh hưởng của việc đưa các hiệu ứng ứng suất vào oxy hóa khi sử dụng bộ mô phỏng `ATHENA` [6.12]. Trước hết, một oxide đệm `SiO₂` dày `20 nm` được tăng trưởng và sau đó một lớp `Si₃N₄` dày `150 nm` được lắng đọng. Sau đó lớp nitride được khắc ở phía trái của mỗi cấu trúc. Tiếp theo là một quá trình oxy hóa `H₂O` trong `90 phút` ở `1000°C`. Trong mô phỏng bên trái, không có tham số phụ thuộc ứng suất nào được đưa vào. Các tham số phụ thuộc ứng suất đã được đưa vào trong mô phỏng bên phải.
+
+---
+
+Có một hệ quả rất quan trọng của các kết quả được mô tả trong mục này. Trong các công nghệ silicon, việc sử dụng nhiều lần oxy hóa trong quá trình chế tạo linh kiện là điều khá phổ biến. Giả sử, chẳng hạn, chúng ta tăng trưởng một oxide ở `900°C` trong một bước và sau đó oxy hóa tiếp silicon trong một bước sau đó ở `1000°C`. Ở cuối quá trình oxy hóa `900°C`, các mức ứng suất nhất định sẽ tồn tại trong `SiO₂`. Nếu sau đó chúng ta nung wafer lên `1000°C`, các mức ứng suất không thể ngay lập tức nhận các giá trị sẽ được quan sát trong trạng thái dừng đối với một quá trình oxy hóa ở `1000°C`. Nói chung các ứng suất này sẽ thấp hơn, bởi vì oxide có thể chảy dễ hơn ở nhiệt độ cao để giải phóng chúng. Tuy nhiên, việc này sẽ cần thời gian, và vì vậy ta nên kỳ vọng một quá độ ở giai đoạn đầu của quá trình oxy hóa `1000°C`, khi các hằng số tốc độ oxy hóa sẽ không có các giá trị mà ta thường mong đợi ở nhiệt độ đó. Các dạng quá độ này thực sự đã được quan sát bằng thực nghiệm và hiệu ứng chi phối dường như là trên `B` [6.33]. Nghĩa là, các mức ứng suất hình thành sẵn trong oxide làm thay đổi mật độ của oxide so với giá trị thường được kỳ vọng ở nhiệt độ oxy hóa thứ hai; do đó hệ số khuếch tán của chất oxy hóa bị ảnh hưởng cho đến khi oxide thư giãn về trạng thái “bình thường” của nó đối với nhiệt độ oxy hóa thứ hai. Nếu quá trình oxy hóa thứ nhất ở nhiệt độ cao và quá trình thứ hai ở nhiệt độ thấp hơn, thì oxide thứ hai ban đầu sẽ tăng trưởng nhanh hơn dự kiến vì các mức ứng suất sẽ thấp hơn mức được kỳ vọng ở nhiệt độ thấp hơn. Nếu quá trình oxy hóa thứ nhất ở nhiệt độ thấp hơn và quá trình thứ hai ở nhiệt độ cao hơn, thì tốc độ trong quá trình oxy hóa thứ hai ban đầu sẽ chậm hơn dự kiến. Những dạng hiệu ứng này ngày nay mới chỉ bắt đầu được mô hình hóa trong các chương trình mô phỏng công nghệ. Về bản chất, chúng hàm ý rằng lịch sử xử lý của wafer có ảnh hưởng đến các tham số công nghệ quan sát được trong một bước xử lý nhất định.
+
+Một trong những xu hướng hiện nay của ngành công nghiệp bán dẫn là hướng tới việc sử dụng các thiết bị xử lý nhiệt nhanh kiểu từng wafer (`single wafer rapid thermal processing`). Các hệ thống này gia nhiệt wafer từ nhiệt độ phòng lên nhiệt độ xử lý rất nhanh, thường chỉ trong vài giây, bằng gia nhiệt đèn. Các hiệu ứng nhớ như đã mô tả ở đoạn trước sẽ trở nên trầm trọng hơn trong các hệ thống như vậy vì về cơ bản sẽ không có thời gian trong quá trình tăng nhiệt để các tính chất của oxide đạt đến các giá trị đặc trưng cho nhiệt độ xử lý. Nếu xử lý nhiệt nhanh được kết hợp với oxy hóa, các tốc độ oxy hóa hiệu dụng có thể khác đáng kể so với dự kiến, và chắc chắn sẽ phụ thuộc vào lịch sử wafer. Đây phần lớn vẫn là một lĩnh vực chưa được nghiên cứu đầy đủ và có thể sẽ ngày càng quan trọng trong tương lai.
+
+Cuối cùng, hai kết quả thú vị gần đây đã cho thấy rằng có thể oxy hóa các cấu trúc silicon có hình dạng và tăng trưởng các lớp oxide đồng đều trên chúng. Điều này có thể thực hiện được nếu tìm được một cách để giải phóng các ứng suất tích lũy trong quá trình oxy hóa và do đó loại bỏ các ảnh hưởng của ứng suất lên các hệ số tốc độ oxy hóa. Dĩ nhiên, có thể làm điều này bằng cách oxy hóa ở nhiệt độ rất cao vì vào khoảng `1200°C`, oxide có thể chảy đủ dễ để giải phóng các ứng suất. Tuy nhiên, các nhiệt độ cao như vậy nói chung không tương thích với các linh kiện có hình học nhỏ. Hai cách khác để đạt được về cơ bản cùng kết quả là thực hiện oxy hóa trong hỗn hợp `O₂/NF₃` [6.34], hoặc sử dụng phóng điện corona phía trên wafer trong quá trình oxy hóa [6.35]. Các lý do vật lý tại sao các quá trình này dường như giải phóng được các ứng suất trong oxide đang tăng trưởng hiện vẫn chưa được hiểu rõ.
+
+## 6.5.8 Các mô hình tiên tiến dựa trên khuyết tật điểm cho quá trình oxy hóa
+
+Các mô hình mà chúng ta đã mô tả cho đến thời điểm này chủ yếu nhằm giải thích động học tăng trưởng của các lớp oxide. Nếu đó là tất cả những gì chúng ta cần giải thích, thì tập hợp các mô hình mà chúng ta đã xem xét cho đến nay sẽ là khá đầy đủ. Tuy nhiên, vẫn còn có những kết quả thực nghiệm khác mà các mô hình này không thể giải thích được, phần lớn trong số đó liên quan đến các tương tác giữa quá trình oxy hóa và các bước công nghệ khác như khuếch tán. Một trong những chỉ dấu sớm nhất cho thấy trong quá trình oxy hóa thực sự đang diễn ra nhiều hơn những hiệu ứng mà chúng ta đã xét đến cho tới nay là các quan sát từ hơn `20` năm trước rằng các quá trình oxy hóa bề mặt làm thay đổi tốc độ khuếch tán của các tạp chất trong đế silicon bên dưới. Hiện tượng này hiện nay được gọi là **oxidation enhanced diffusion (`OED`)** trong các trường hợp mà tốc độ khuếch tán tạp chất tăng lên do oxy hóa bề mặt, hoặc **oxidation retarded diffusion (`ORD`)** trong các trường hợp mà quá trình khuếch tán bị làm chậm lại bởi oxy hóa bề mặt. Chúng ta sẽ xem xét các trường hợp này chi tiết hơn trong Chương `7`. Tuy nhiên, ở đây chúng ta sẽ giới thiệu thêm một số ý tưởng về oxy hóa, là những điều sẽ cần đến để giải thích `OED`, `ORD` và các hiệu ứng liên quan khác.
+
+Tất cả các cơ chế oxy hóa mà chúng ta đã xem xét cho đến nay đều là các hiện tượng hoàn toàn cục bộ. Nghĩa là, chúng giúp giải thích vì sao các oxide tăng trưởng với các tốc độ như vậy, nhưng chúng không đưa ra gợi ý nào về việc vì sao oxy hóa bề mặt lại có thể, chẳng hạn, làm nhiễu loạn các tốc độ khuếch tán tạp chất ở khoảng cách hàng chục micron tính từ bề mặt. Rõ ràng phải có một hiện tượng phi cục bộ nào đó liên quan. Quan điểm hiện tại về các hiệu ứng như vậy tập trung vào chính phản ứng tại mặt tiếp xúc (`B/A` hoặc `k_S` trong mô hình Deal-Grove). Chúng ta đã thấy rằng có một sự giãn nở thể tích rất lớn xảy ra trong quá trình oxy hóa. Sự giãn nở thể tích này dẫn đến các ứng suất nén rất lớn trong lớp oxide và các ứng suất kéo trong silicon ở vùng gần bề mặt. Dobson là một trong những người đầu tiên đề xuất rằng có thể tồn tại các cơ chế ở mức nguyên tử sẵn có đối với mặt tiếp xúc đang oxy hóa để giúp giải phóng các ứng suất này [6.36]. Về bản chất, các cơ chế này cung cấp một phần “thể tích” cần thiết để oxide có thể tăng trưởng. **Hình 6.32** minh họa các ý tưởng này. Ở mức vi mô, các liên kết `Si-Si` bị phá vỡ tại mặt tiếp xúc `Si/SiO₂`, các nguyên tử `O` được chèn vào giữa các nguyên tử `Si`, và các liên kết `Si-O` được hình thành. Sự giãn nở thể tích xuất phát từ không gian cần thiết cho các nguyên tử `O`.
+
+---
+
+**Hình 6.32:** Các phản ứng khuyết tật điểm diễn ra tại mặt tiếp xúc `Si/SiO₂` trong quá trình oxy hóa. Các phản ứng oxy hóa `(*)` có thể tiêu thụ `V` hoặc tạo ra `I` nhằm cung cấp thể tích cần thiết để phản ứng xảy ra.
+
+---
+
+Có hai loại khuyết tật điểm chủ yếu hiện diện trong các vật liệu tinh thể như `Si` — **vacancy (`V`)** hay các nguyên tử `Si` bị thiếu, và **interstitial (`I`)** hay các nguyên tử silicon dư. Chúng ta đã giới thiệu một số ý tưởng cơ bản về các khuyết tật này trong Chương `3`, nơi chúng ta đã thấy rằng chúng có thể tồn tại ở cả trạng thái trung hòa và trạng thái mang điện, và rằng nồng độ của chúng nói chung tăng theo hàm mũ với nhiệt độ.
+
+Thể tích cho phản ứng oxy hóa có thể được cung cấp tại mặt tiếp xúc `Si/SiO₂` bằng cách hoặc tiêu thụ các vacancy, hoặc tạo ra các interstitial. Đây là hai phản ứng được minh họa trong **Hình 6.32**. Chúng ta có thể biểu diễn các phản ứng này theo cùng cách mà chúng ta đã mô hình hóa sự hình thành các kết tủa `SiO₂` trong Chương `3` (**Hình 3.25**):
+
+---
+
+> **[Công thức / phản ứng]**
+>
+> $$
+> (1+2\gamma)\mathrm{Si} + 2O_I + 2\beta V \leftrightarrow SiO_2 + 2\gamma I + \text{stress}
+> \tag{6.47}
+> $$
+
+---
+
+Phản ứng hình thành `SiO₂` tiêu thụ các vacancy và tạo ra các interstitial bởi vì các vacancy cung cấp một phần thể tích cần thiết để quá trình oxy hóa tiếp diễn, cũng như việc loại bỏ các nguyên tử `Si` dưới dạng `I`. `\gamma` là số `I` đóng góp vào quá trình trên mỗi nguyên tử `O` gia nhập vào `SiO₂`, và `\beta` là một phần tương tự đối với `V`. Một hạng ứng suất cũng được đưa vào phía bên phải bởi vì về mặt thực nghiệm, chúng ta biết rằng các khuyết tật điểm không cung cấp toàn bộ thể tích cần thiết.
+
+Việc tạo ra `I` được cho là giải thích các tương tác giữa quá trình oxy hóa và các quá trình khác như khuếch tán (tức là `OED` và `ORD`) bởi vì các `I` được tạo ra có thể khuếch tán đi xa khỏi mặt tiếp xúc `Si/SiO₂` và làm thay đổi hệ số khuếch tán của các tạp chất có tương tác với `I`. Chúng ta sẽ thảo luận điều này thêm trong Chương `7`. Việc tiêu thụ `V` như một con đường để cung cấp thể tích cần thiết cho quá trình oxy hóa sẽ được ưu tiên trong các trường hợp có mặt số lượng lớn `V`. Điều này được tin là xảy ra trong các vùng silicon pha tạp nặng (như chúng ta đã thấy trong Chương `3`), và phản ứng này đã được dùng để giải thích vì sao quá trình oxy hóa diễn ra với tốc độ cao hơn nhiều trên các đế pha tạp nặng so với trên các đế pha tạp nhẹ. Chúng ta sẽ thảo luận đầy đủ hơn về điều này trong Mục `6.5.9`.
+
+Rõ ràng là các cơ chế được đề xuất trong Phương trình `6.47` không cung cấp toàn bộ thể tích cần thiết tại mặt tiếp xúc đang oxy hóa. Việc các oxide tăng trưởng chịu các ứng suất nén rất lớn là bằng chứng rõ ràng cho điều này. Thực ra, các ước lượng về số lượng `I` khuếch tán vào trong đế trong quá trình oxy hóa cho thấy ít hơn `1` trong `10^3` nguyên tử `Si` làm điều đó. Phần còn lại bị tiêu thụ bởi quá trình oxy hóa và kết thúc trong lớp `SiO₂`. Thực ra, số lượng `I` thực sự được tạo ra bởi quá trình oxy hóa có thể lớn hơn nhiều so với `1` trong `10^3` số nguyên tử silicon bị oxy hóa. Phần lớn trong số đó có thể cuối cùng khuếch tán vào lớp `SiO₂`, nơi chúng bị oxy hóa. Tuy nhiên, các tác động mà số ít khuyết tật điểm thực sự khuếch tán vào trong đế gây ra đối với các hiện tượng công nghệ trong silicon bên dưới là hết sức đáng chú ý.
+
+Sự ghép nối giữa động học oxy hóa và các hiện tượng công nghệ khác ngày nay thường được mô hình hóa bằng các phương trình phản ứng-khuếch tán và một khuôn khổ khái niệm như trong **Hình 6.33** [6.37]. Một mặt tiếp xúc đang oxy hóa được đặc trưng bởi các tốc độ sinh và tái hợp của các khuyết tật điểm. Cân bằng giữa `G` và `R` quyết định xem có tồn tại một thông lượng thuần của các khuyết tật điểm đi vào hay đi ra khỏi bề mặt hay không. Trong trường hợp oxy hóa, kết quả thuần là một thông lượng các interstitial đi ra khỏi bề mặt và đi vào khối. Các interstitial này tương tác trong phần khối silicon với các nguyên tử tạp chất, tạo ra các hệ số khuếch tán tạp chất tỉ lệ với nồng độ cục bộ của các khuyết tật điểm (Chương `7`). Cách tiếp cận mô hình hóa này trong những năm gần đây đã khá thành công, nhưng nó phụ thuộc vào các giá trị xác định bằng thực nghiệm cho `G`, `R`, hệ số khuếch tán khuyết tật điểm, các tốc độ tái hợp trong khối và nhiều tham số khác. Mối liên hệ với động học oxy hóa là thông qua `G` và `R`. Chẳng hạn, trong `SUPREM IV`, `G` và `R` đối với một mặt tiếp xúc `Si/SiO₂` đang oxy hóa được mô hình hóa là
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> G = \theta \,\frac{dx_O}{dt}\, N
+> \tag{6.48}
+> $$
+>
+> $$
+> R = K_{\text{inert}} K_{\text{rat}}
+> \left(
+> \frac{dx_O/dt}{B/A}
+> \right)^{K_{\text{pow}}}
+> + K_{\text{inert}}
+> \tag{6.49}
+> $$
+
+---
+
+trong đó `\theta` là phần các nguyên tử silicon bị oxy hóa được tiêm vào trong đế dưới dạng các interstitial, `dx_O/dt` là vận tốc oxy hóa, `N` là số nguyên tử silicon trên một đơn vị thể tích, `K_{\text{inert}}` là vận tốc tái hợp tại một mặt tiếp xúc `Si/SiO₂` trơ, và `K_{\text{rat}}` xét đến sự gia tăng tốc độ tái hợp tại một mặt tiếp xúc đang oxy hóa. Lưu ý rằng `\theta` không giống với `\gamma` trong Phương trình `6.47`, vì `\theta` chỉ biểu thị các `I` được tiêm vào silicon. Tất cả các giá trị `K` và `\theta` đều được xác định bằng thực nghiệm. Các bề mặt khác, chẳng hạn các mặt tiếp xúc `Si/Si₃N₄`, được mô hình hóa bằng các biểu thức tương tự nhưng với các giá trị tham số khác. Cách tiếp cận mô hình hóa này ở thời điểm hiện tại nên được xem là có tính hiện tượng luận, bởi vì chưa có một mô hình vật lý nền tảng nào được chấp nhận rộng rãi.
+
+---
+
+**Hình 6.33:** Biểu diễn tổng quát của các quá trình sinh khuyết tật điểm (`G`), tái hợp (`R`, `K_B` và `K_S`) và khuếch tán trong silicon. Trong ví dụ này, oxy hóa cục bộ (phía bên phải) tạo ra các interstitial khuếch tán ra xa khỏi mặt tiếp xúc `Si/SiO₂`, làm tăng cục bộ sự khuếch tán hướng xuống của lớp epitaxy (`OED`).
+
+---
+
+Các mô hình cũng đã được đề xuất nhằm cố gắng giải thích `G` và `R` ở mức cơ bản hơn. Hu đã đề xuất một mô hình mọc lại (`regrowth model`), trong đó các **kink site** tại mặt tiếp xúc đóng vai trò là các vị trí cho sự tái hợp của interstitial [6.38]. Dunham đã đề xuất một mô hình ba thông lượng, bao gồm sinh, mọc lại bề mặt và sự phân ly (`segregation`) của các interstitial vào trong `SiO₂` [6.39]. Tuy nhiên, tất cả các mô hình này hiện nay vẫn phải được xem là mang tính suy đoán.
+
+**Hình 6.34** cho thấy một ví dụ về mô phỏng các hiệu ứng `OED` này. Cấu trúc này tương tự như hình vẽ khái niệm trong **Hình 6.33**. Sau một lần cấy boron đồng đều, nửa bên phải của cấu trúc được oxy hóa. Các `I` được tiêm bởi mặt tiếp xúc đang oxy hóa làm tăng hệ số khuếch tán của boron, tạo ra một tiếp giáp sâu hơn ở phía bên phải. Lưu ý các hiệu ứng hai chiều gắn với sự khuếch tán của `I` ra xa khỏi bề mặt. Hiệu ứng `OED` kéo dài gần một micron vào bên dưới mặt nạ nitride.
+
+## 6.5.9 Các hiệu ứng pha tạp đế
+
+Từ nhiều năm nay đã biết rằng các đế pha tạp nặng oxy hóa nhanh hơn các wafer pha tạp nhẹ. Hiệu ứng này đặc biệt quan trọng ở nhiệt độ thấp hơn và đối với các oxide mỏng hơn. Trong các điều kiện này, sự khác biệt về tốc độ oxy hóa giữa các vùng pha tạp nặng và pha tạp nhẹ có thể là `3` đến `4` lần [6.40]. Sự khác biệt rõ rệt hơn đối với các vùng `N+` so với các vùng `P+`, và rõ rệt hơn ở nhiệt độ thấp so với các quá trình oxy hóa ở nhiệt độ cao. Phân tích đã chỉ ra rằng cơ chế gắn liền với quá trình oxy hóa nhanh hơn đang xảy ra tại mặt tiếp xúc `Si/SiO₂`. Nói cách khác, `B/A` chứ không phải `B` bị ảnh hưởng trong mô hình Deal-Grove. Điều này có lẽ không quá ngạc nhiên bởi vì các tạp chất loại `N` có xu hướng phân ly vào silicon trong quá trình oxy hóa. Do đó, nồng độ tạp chất trong lớp `SiO₂` đang tăng trưởng thường khá nhỏ, ngay cả khi đế được pha tạp nặng. Kết quả là, các tính chất của lớp `SiO₂` tăng trưởng ở bậc một là độc lập với pha tạp đế. Do đó, `B`, vốn chủ yếu được xác định bởi quá trình khuếch tán chất oxy hóa qua `SiO₂`, không bị ảnh hưởng đáng kể. Nói cách khác, chất oxy hóa khuếch tán vào trong (`O₂` hoặc `H₂O`) sẽ không thể nhận biết được liệu đế có được pha tạp nặng hay không, cho tới khi nó đến mặt tiếp xúc `Si/SiO₂`.
+
+Mặc dù có thể có một số cơ chế vật lý giải thích được ảnh hưởng của pha tạp nặng lên `B/A`, mô hình được chấp nhận rộng rãi nhất dựa vào cơ chế `V` được minh họa ở phần trên của **Hình 6.32**. Ý tưởng cơ bản như sau. Oxy hóa đòi hỏi sự giãn nở thể tích. Thể tích này có thể được cung cấp bằng cách tiêu thụ `V` tại mặt tiếp xúc `Si/SiO₂` đang tăng trưởng. Chúng ta đã thấy trong Chương `3` rằng tổng số `V` cao hơn nhiều trong các vùng ngoại sinh, pha tạp nặng, so với vật liệu nội tại, pha tạp nhẹ. Về mặt vật lý, điều này là vì các vacancy có thể tồn tại ở một số trạng thái điện tích (`V⁰`, `V⁺`, `V⁻` và `V²⁻`) và các vacancy mang điện có các mức năng lượng rời rạc trong vùng cấm silicon. Khi mức Fermi `E_F` dịch chuyển ra xa khỏi giữa vùng cấm trong vật liệu ngoại sinh, nó vượt qua các mức `V⁻` hoặc `V²⁻` trong vật liệu `N+` hoặc mức `V⁺` trong vật liệu `P+`, gây ra sự gia tăng lớn trong quần thể vacancy mang điện. Trong Chương `3`, chúng ta đã biểu diễn các ý tưởng này bằng toán học và thấy rằng có thể tính toán số lượng vacancy có mặt trong tinh thể tại bất kỳ nhiệt độ và mức pha tạp nào.
+
+Nếu các vacancy này có thể cung cấp các vị trí cho phản ứng oxy hóa, thì [6.40]
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> \frac{B}{A} = R_1 + K\, C_{VT}^{*}
+> \tag{6.50}
+> $$
+
+---
+
+trong đó `R₁` đại diện cho tất cả các cơ chế khác ngoài quá trình được dẫn dắt bởi vacancy, và `C*_{VT}` là tổng quần thể vacancy ở tất cả các trạng thái điện tích có mặt trong vật liệu tại nhiệt độ oxy hóa. Với một nhiệt độ và một mức pha tạp cho trước (tức là `E_F`), chúng ta có thể tính `C*_{VT}` bằng các phương trình đã phát triển trong Chương `3`.
+
+Phương trình `6.50` thường được viết lại theo dạng sau để tiện dụng hơn:
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> \frac{B}{A}=\left(\frac{B}{A}\right)_i
+> \left[
+> 1+
+> 2.62\times10^3
+> \exp\!\left(\frac{-1.1\,\text{eV}}{kT}\right)
+> \left(
+> \frac{C_{VT}}{C_{VT_i}}-1
+> \right)
+> \right]
+> \tag{6.51}
+> $$
+
+---
+
+`C*"` là tổng nồng độ vacancy trong vật liệu nội tại ở nhiệt độ oxy hóa. Thừa số `2.62 \times 10^3 \exp(-1.1\,\text{eV}/kT)` là một tham số được xác định bằng thực nghiệm, mà về mặt vật lý được cho là biểu diễn điều gì đó liên quan đến hiệu quả của phản ứng vacancy so với các thành phần khác trong `B/A`. Biểu thức này đã khá thành công trong việc mô hình hóa quá trình oxy hóa các vùng pha tạp nặng và được cài đặt trong `SUPREM IV`.
+
+Cần đưa ra một số điểm chú ý liên quan đến mô hình này. Điểm thứ nhất là vì mô hình dựa trên quần thể `V` và những giá trị này chỉ phụ thuộc vào `T` và `E_F`, nên không có sự khác biệt nào nếu các vùng `N+` được tạo thành bằng arsenic hay phosphorus. Cùng một nồng độ bề mặt điện hoạt như nhau sẽ tạo ra cùng `E_F` và do đó cùng `B/A`. Thứ hai, nồng độ liên quan cần được dùng để tính `E_F` và do đó `C*_{VT}` là nồng độ bề mặt, vì đó là nơi phản ứng oxy hóa đang diễn ra.
+
+Các hiệu ứng phân ly (`segregation`) và tích lũy (`pile-up`) có thể làm tăng nồng độ này lên trên các giá trị trong khối. Chúng ta đã giới thiệu ý tưởng về phân ly trong Chương `3` trong bối cảnh tăng trưởng tinh thể. Trong trường hợp đó, chúng ta quan tâm đến sự phân bố của một tạp chất qua mặt tiếp xúc rắn/lỏng của tinh thể đang tăng trưởng. Trong quá trình oxy hóa, chúng ta có một mặt tiếp xúc `Si/SiO₂`, nơi cũng xảy ra phân ly tạp chất. Các tạp chất loại `N` có xu hướng phân ly vào silicon trong khi boron thích ở trong `SiO₂`. Kết quả là, nồng độ bề mặt của các tạp chất loại `N` sẽ có xu hướng tăng lên khi quá trình oxy hóa tiến triển, và sẽ có xu hướng giảm trong quá trình oxy hóa đối với loại `P`. Vì điều này, các giá trị `B/A` được tính từ Phương trình `6.51` sẽ thay đổi theo thời gian trong quá trình oxy hóa. Do đó, tốc độ oxy hóa sẽ thay đổi theo thời gian. Các thí nghiệm gần đây đã đo cẩn thận các profile tạp chất gần bề mặt, và chỉ ra rõ ràng sự phụ thuộc thời gian của tốc độ oxy hóa và tương quan của nó với quá trình tích lũy tạp chất [6.41]. Một phần đáng kể của tạp chất trong lớp tích lũy tại bề mặt có thể không điện hoạt, và do đó theo mô hình `C*"`, sẽ không ảnh hưởng đến tốc độ oxy hóa.
+
+Mô hình cũng dự đoán rằng các đế `P+` sẽ không thể hiện mức tăng tốc độ oxy hóa lớn như các vùng `N+`, bởi vì như chúng ta đã thấy trong Chương `3`, có ít vacancy tổng cộng hơn trong các vùng `P+` đối với cùng một mức pha tạp. Điều này phù hợp với thực nghiệm. Cuối cùng, vì các tạp chất loại `P` như boron có xu hướng phân ly vào lớp oxide đang tăng trưởng thay vì ở lại trong đế silicon, có thể tạo ra nồng độ boron cao trong `SiO₂` đang tăng trưởng. Có các chỉ dấu cho thấy điều này có thể làm thay đổi cấu trúc của lớp oxide đủ để quan sát thấy các thay đổi trong hệ số khuếch tán chất oxy hóa qua các màng này. Kết quả là, hằng số tốc độ parabol `B` có thể hơi khác (thường là lớn hơn) so với giá trị của nó ở cùng nhiệt độ nếu oxide được tăng trưởng trên một vùng pha tạp nhẹ hoặc `N+`. Hiệu ứng này chưa được đặc trưng đủ tốt để mô hình hóa.
+
+Các mô hình khác cũng đã được đề xuất để giải thích sự phụ thuộc pha tạp của quá trình oxy hóa. Một số dựa trên ý tưởng rằng nồng độ tạp chất cao tại mặt tiếp xúc `Si/SiO₂` có thể làm thay đổi năng lượng liên kết `Si-Si` và do đó ảnh hưởng đến `B/A`. Một số khác dựa trên ý tưởng rằng cấu trúc của vùng mặt tiếp xúc `Si/SiO₂` bị thay đổi bởi nồng độ tạp chất cao, cũng dẫn đến sự thay đổi trong `B/A` của mô hình Deal-Grove [6.42, 6.43]. Ở thời điểm hiện tại, không có mô hình nào trong số này được lượng hóa đủ để sử dụng trong các bộ mô phỏng oxy hóa, vì vậy Phương trình `6.50` là mô hình thường được dùng.
+
+Một ví dụ về mô phỏng liên quan đến quá trình oxy hóa pha tạp nặng được trình bày trong **Hình 6.35**. Ở phía bên trái, một quá trình oxy hóa ở nhiệt độ thấp (`800°C`) được mô phỏng, trong khi ở phía bên phải là mô phỏng ở nhiệt độ cao hơn (`1000°C`). Trong mỗi trường hợp, phía bên phải của cấu trúc được pha tạp nặng và phía bên trái được pha tạp nhẹ. Vùng pha tạp nặng tăng trưởng khoảng `5` lần nhiều oxide hơn vùng pha tạp nhẹ ở `800°C`, so với chỉ khoảng `2` lần ở `1000°C`. Vùng chuyển tiếp giữa vùng pha tạp nhẹ và vùng pha tạp nặng trong mỗi mô phỏng chỉ có thể được mô hình hóa đúng đắn bằng cách dùng mô hình khuếch tán `2D` và mô hình oxy hóa `2D`, đòi hỏi một bộ mô phỏng số như `SUPREM IV` được dùng trong ví dụ này.
+
+---
+
+**Hình 6.35:** Oxy hóa các vùng pha tạp nặng sử dụng bộ mô phỏng `ATHENA` [6.12]. Một lần cấy ion phosphorus với liều `5 × 10¹⁵ cm⁻²` năng lượng `20 KeV` được thực hiện trên nửa bên phải của cấu trúc. Sau đó tiến hành oxy hóa `30 phút` trong `H₂O` ở `800°C` (hình bên trái) và `5 phút` trong `H₂O` ở `1000°C` (hình bên phải). Các đường đồng mức tương ứng với các profile tạp chất khuếch tán. Các đường liền nét ở phần trên của cấu trúc xác định các lớp `SiO₂` đã tăng trưởng.
+
+---
+
+## 6.5.10 Oxy hóa Polysilicon
+
+Trong công nghệ silicon, điều không hiếm gặp là có các màng mỏng của các vật liệu khác ở cục bộ trên bề mặt wafer khi một quá trình oxy hóa diễn ra. Các ví dụ phổ biến nhất là các màng mỏng polysilicon, `Si₃N₄` và các silicide khác nhau. Chúng ta đã thấy một số ví dụ về các loại quá trình này trong Chương `2`. Trong ba mục tiếp theo, chúng ta sẽ xem xét sơ lược ảnh hưởng của quá trình oxy hóa lên các vật liệu màng mỏng này.
+
+Ở bậc một, cùng tập hợp các mô hình được mô tả ở trên cho silicon đơn tinh thể cũng có thể được dùng cho polysilicon. Đây thực ra là chiến lược được dùng trong hầu hết các chương trình mô phỏng công nghệ. Tuy nhiên, cách tiếp cận này không phải lúc nào cũng hoàn toàn thỏa đáng vì hai lý do cơ bản. Thứ nhất, polysilicon là một vật liệu đa tinh thể. Thứ hai, các màng polysilicon là các cấu trúc mỏng hoặc có thể tích hữu hạn.
+
+Việc vật liệu polysilicon là đa tinh thể có nghĩa là nhiều hướng tinh thể khác nhau có thể hiện diện trong các hạt khác nhau. Cấu trúc hạt gắn với các lớp polysilicon là hàm mạnh của các điều kiện lắng đọng và các xử lý nhiệt tiếp theo. Nói chung, lắng đọng ở nhiệt độ thấp hơn tạo ra kích thước hạt nhỏ hơn. Thực ra, lắng đọng ở dưới khoảng `600°C` có xu hướng tạo ra các màng vô định hình thay vì đa tinh thể. Ủ ở nhiệt độ cao nói chung làm cho các hạt lớn hơn và số lượng hạt giảm đi. Hướng tinh thể chi phối thường là `(110)`. Một tài liệu tham khảo xuất sắc về polysilicon, các tính chất và ứng dụng của nó là [6.44].
+
+Có một số hệ quả của bản chất đa tinh thể của các màng này đối với động học oxy hóa. Rõ ràng nhất đơn giản là `B/A` sẽ biến đổi từ hạt này sang hạt khác và có thể theo thời gian nếu cấu trúc hạt poly thay đổi trong quá trình oxy hóa. Chúng ta đã thảo luận về các hiệu ứng hướng trong Mục `6.5.5` và đã thấy ở đó rằng `B/A` có thể thay đổi tới `70%` tùy thuộc vào hướng. Các bề mặt `(110)` oxy hóa ở tốc độ trung gian giữa `(111)` và `(100)` (hai cực trị), và thường những gì được làm để mô hình hóa quá trình oxy hóa polysilicon là đơn giản dùng một giá trị `B/A` trung bình đặc trưng cho hướng `(110)`. Đối với các oxide tương đối mỏng, nơi `B/A` là quan trọng, chúng ta nên kỳ vọng thấy các biến động về độ dày oxide trên một bề mặt polysilicon vì các hướng hạt khác nhau. Đối với các oxide dày hơn, các sự khác biệt này có xu hướng biến mất vì như chúng ta đã thấy trong Mục `6.5.5`, hằng số tốc độ parabol `B` không phải là hàm của cấu trúc tinh thể bên dưới.
+
+Hầu hết các màng mỏng polysilicon được dùng trong công nghệ silicon đều được pha tạp nặng vì chúng thường được dùng làm các kết nối cục bộ, điện cực cổng trong các linh kiện `MOS` hoặc cho các vùng emitter bipolar. Trong các trường hợp này, việc mô hình hóa bất kỳ quá trình oxy hóa nào diễn ra sẽ phải bao gồm các hiệu ứng pha tạp. Đây trở thành một bài toán phức tạp do bản chất đa tinh thể của màng và do thể tích hữu hạn của nó. Các tạp chất khuếch tán rất nhanh trong các màng polysilicon, vì chúng có xu hướng di chuyển dọc theo các biên hạt và sau đó vào trong các hạt. Khuếch tán biên hạt là một quá trình rất nhanh (ít nhất nhanh hơn `10²` lần so với khuếch tán trong khối). Kết quả là, các profile tạp chất có xu hướng đồng đều trong các màng polysilicon mỏng sau một thời gian rất ngắn ở nhiệt độ cao. Ở bậc một, nồng độ hóa học tạp chất đơn giản được cho bởi
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> [\text{Dopant}] = \frac{\text{Implant Dose}}{\text{Poly Thickness}}
+> \tag{6.52}
+> $$
+
+---
+
+khi poly được pha tạp bằng cấy ion. Tuy nhiên, nồng độ điện hoạt có thể thấp hơn nhiều so với giá trị này bởi vì một số nguyên tử tạp chất phân ly ra biên hạt, nơi chúng không điện hoạt, và bởi vì một số hạt tải tự do cũng bị bẫy tại biên hạt. Kết quả thuần là `n` hoặc `p` và do đó `E_F` có thể khá khác so với các giá trị người ta thường tìm thấy trong silicon đơn tinh thể với cùng nồng độ pha tạp. Kết quả của các hiệu ứng này là việc áp dụng các mô hình như Phương trình `6.54` thường không đơn giản trong polysilicon. Thường có thể làm như vậy, nhưng phải dùng giá trị `n` hoặc `p` đúng để tìm `E_F` và từ đó tính `C*_{VT}`.
+
+Thể tích hữu hạn của các màng mỏng polysilicon cũng có một số hệ quả thú vị. Thông thường nhất, lớp polysilicon được lắng đọng trên một lớp `SiO₂` bên dưới. Trong quá trình oxy hóa, polysilicon bị tiêu thụ và lớp này do đó sẽ trở nên mỏng hơn. Hầu hết các tạp chất loại `N` thích ở lại trong silicon hay polysilicon hơn là phân ly vào các lớp `SiO₂` đang tăng trưởng. Điều này ngụ ý rằng nồng độ hóa học và có lẽ cả nồng độ điện hoạt của tạp chất sẽ tăng trong quá trình oxy hóa. Thực ra, các mức pha tạp rất cao có thể đạt được vì các lớp poly thường được pha tạp khá nặng để cải thiện độ dẫn điện của chúng. Các nồng độ tạp chất điện hoạt có thể dễ dàng đạt đến các mức độ hòa tan tối đa, và trong các trường hợp cực đoan, các pha mới như `SiP` có thể được hình thành. Các pha như vậy có thể dẫn đến các vấn đề công nghệ bất thường. Ví dụ, `SiP` tan được trong `HF` — vốn có thể được dùng sau đó để khắc oxide. Nếu `SiP` hòa tan, các "lỗ hổng" có thể để lại trong lớp polysilicon, dẫn đến các vấn đề về năng suất. Cuối cùng, có một số quá trình trong đó lớp polysilicon bị oxy hóa hoàn toàn. Thường điều này được thực hiện cục bộ như là một phần của quá trình kiểu `LOCOS`. Việc mô hình hóa các bước công nghệ như vậy là thách thức vì các điều kiện cực đoan về nồng độ tạp chất và các hiệu ứng khác có thể gặp phải khi poly trở nên rất mỏng về cuối quá trình oxy hóa. Nếu lớp polysilicon được lắng đọng trên một lớp silicon bên dưới (ví dụ như trong một vùng emitter bipolar), vật lý quá trình sẽ khá khác vì không có lớp oxide chặn bên dưới poly trong trường hợp đó.
+
+Một số nghiên cứu về quá trình oxy hóa polysilicon đã được thực hiện như là hàm của nhiệt độ, mức pha tạp poly, v.v. Ở bậc một, các thí nghiệm này có thể được giải thích bởi các mô hình silicon đơn tinh thể mà chúng ta đã mô tả trước đó, và đây là cách tiếp cận thường được dùng trong các bộ mô phỏng như `SUPREM IV`. Tuy nhiên, các hiệu ứng của biên hạt và thể tích hữu hạn của poly có thể dẫn đến động học tăng trưởng oxide rất khác với những gì tìm thấy trên các đế đơn tinh thể trong một số điều kiện. Ở thời điểm hiện tại, chưa có mô hình đa dụng nào được phát triển, ngoài những mô hình chúng ta đã mô tả, để xét đến các hiệu ứng này.
+
+**Hình 6.36** cho thấy một ví dụ về mô phỏng liên quan đến quá trình oxy hóa polysilicon sử dụng `SUPREM IV`. Đế silicon có hướng `(100)` và do đó có tốc độ oxy hóa chậm hơn poly (cả hai đều không pha tạp trong ví dụ này). Poly bị tiêu thụ phần lớn bởi quá trình oxy hóa. Cũng lưu ý sự lấn chiếm của oxide đang tăng trưởng bên dưới poly do oxy hóa `2D`.
+
+---
+
+**Hình 6.36:** Ví dụ về mô phỏng oxy hóa liên quan đến polysilicon sử dụng bộ mô phỏng `ATHENA` [6.12]. Cấu trúc ban đầu (bên trái) có một lớp polysilicon trên `SiO₂` trên silicon. Nửa bên trái của cấu trúc được khắc để lộ đế `Si`. Một quá trình oxy hóa `H₂O` trong `60 phút` ở `1000°C` được mô phỏng ở bên phải.
+
+---
+## 6.5.11 Động học tăng trưởng và oxy hóa Si₃N₄
+
+Chúng ta đã thấy một số ví dụ trong các chương trước về việc sử dụng các màng `Si₃N₄` lắng đọng mỏng trong công nghệ silicon. Cho đến nay, ứng dụng phổ biến nhất là làm mặt nạ chống oxy hóa trong các quá trình kiểu `LOCOS`. Trong ứng dụng này, chúng ta quan tâm đến khả năng của `Si₃N₄` `CVD` chịu được các môi trường oxy hóa trong thời gian khá dài ở nhiệt độ cao. Việc sử dụng `Si₃N₄` theo cách này được minh họa trong **Hình 6.37**. Quá trình tạo ra một lớp bề mặt `SiO₂` trên màng nitride.
+
+Về mặt khái niệm, các phản ứng sau đây có thể xảy ra:
+
+---
+
+> **[Biểu thức hóa học]**
+>
+> $$
+> Si_3N_4 + 3O_2 \rightarrow 3SiO_2 + 2N_2
+> \tag{6.53}
+> $$
+>
+> $$
+> Si_3N_4 + 6H_2O \rightarrow 3SiO_2 + 6H_2 + 2N_2
+> \tag{6.54}
+> $$
+>
+> $$
+> Si_3N_4 + 6H_2O \rightarrow 3SiO_2 + 4NH_3
+> \tag{6.55}
+> $$
+
+---
+
+Từ quan điểm thực tiễn, chúng ta thường quan tâm nhất đến hai phản ứng sau, bởi vì các quá trình kiểu `LOCOS` cố gắng tăng trưởng các oxide trường (`field oxide`) khá dày, và điều này thường ngụ ý phải dùng oxy hóa bằng `H₂O`. Về mặt vật lý, quá trình oxy hóa nên có phần nào đó tương tự như oxy hóa silicon. `H₂O` phải khuếch tán qua lớp `SiO₂` đang tăng trưởng rồi phản ứng tại mặt tiếp xúc `SiO₂/Si₃N₄` để tạo ra các lớp oxide mới. Nếu đây là cách oxide tăng trưởng, thì ta có thể kỳ vọng một định luật tăng trưởng tuyến tính-parabol tương tự như mô hình Deal/Grove cho oxy hóa silicon. Tuy nhiên, quá trình rõ ràng không đơn giản như vậy, vì các động học tăng trưởng phức tạp hơn đã được báo cáo [6.45, 6.46]. Người ta đã đề xuất rằng các sản phẩm phụ của phản ứng (`N₂` hoặc `NH₃`) có ảnh hưởng đến quá trình oxy hóa, hoặc bằng cách thay đổi phản ứng tại mặt tiếp xúc, hoặc bằng cách làm thay đổi quá trình khuếch tán của chất oxy hóa khuếch tán vào trong khi chúng khuếch tán ra ngoài qua oxide.
+
+---
+
+**Hình 6.37:** Quá trình `LOCOS` minh họa oxy hóa cục bộ silicon, sự hình thành oxide trên bề mặt `Si₃N₄` và sự hình thành "dải trắng" (`white ribbon`) do oxy hóa `Si₃N₄`.
+
+---
+
+Do thiếu một mô hình vật lý rõ ràng, các quan hệ thực nghiệm đã được phát triển để cho phép dự đoán động học oxy hóa `Si₃N₄`. Một quan hệ như vậy phù hợp cho các quá trình oxy hóa bằng `H₂O` như sau [6.46]:
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> \Delta x_N = 1.1 \times 10^7
+> \exp\!\left(\frac{-1.9\,\text{eV}}{kT}\right)
+> \cdot t^{0.7} \cdot P
+> \tag{6.56}
+> $$
+
+---
+
+trong đó `Δx_N` là độ dày của nitride bị tiêu thụ tính bằng `nm`, `t` là thời gian oxy hóa tính bằng `min`, và `P` là áp suất chất oxy hóa `H₂O` tính bằng `Atm`. Quá trình oxy hóa liên quan đến sự giãn nở thể tích, giống như oxy hóa silicon; độ dày oxide tạo thành xấp xỉ bằng `1.6 Δx_N`. Một màng `Si₃N₄` điển hình dày `80 nm` sẽ bị tiêu thụ hoàn toàn bởi một quá trình oxy hóa ở `1050°C` trong khoảng `16.6` giờ.
+
+Trong các quá trình oxy hóa bằng `O₂` khô, người ta đề xuất rằng phản ứng thực sự xảy ra phức tạp hơn so với Phương trình `6.53` gợi ý [6.47]. Quá trình oxy hóa có thể thực sự xảy ra theo hai bước, với một lớp `Si₂N₂O` hình thành trên bề mặt `Si₃N₄` trước, rồi sau đó một lớp `SiO₂` hình thành trên đỉnh của `Si₂N₂O`. Dù sao, tốc độ oxy hóa chậm hơn nhiều so với trong môi trường `H₂O`, và `SiO₂` tăng trưởng trên `Si₃N₄` trong các quá trình oxy hóa bằng `O₂` thường có thể bỏ qua.
+
+Một trong những đặc điểm tinh tế của các quá trình kiểu `LOCOS` cũng được minh họa trong **Hình 6.37**. `H₂O` khuếch tán qua lớp `SiO₂` đang tăng trưởng cũng có thể phản ứng với mặt dưới của lớp `Si₃N₄`, tạo ra `NH₃` như là sản phẩm phụ của quá trình oxy hóa. (Xem Phương trình `6.55`.) Thực nghiệm cho thấy `NH₃` sau đó có thể khuếch tán đến mặt tiếp xúc `Si/SiO₂` và phản ứng ở đó để tạo thành một lớp `Si₃N₄` tăng trưởng nhiệt. Điều này đôi khi được gọi là hiệu ứng "dải trắng" (`white ribbon`) hoặc hiệu ứng Kooi, theo tên người đầu tiên giải thích quá trình này. Tên "dải trắng" xuất phát từ hình dạng đặc trưng dưới kính hiển vi của lớp `Si₃N₄` như một dải chạy quanh mép các vùng tích cực của linh kiện (ngay bên dưới mép của lớp `Si₃N₄` lắng đọng phía trên). Lớp `Si₃N₄` tăng trưởng này đôi khi có thể gây ra các vấn đề nếu nó không được loại bỏ trong các bước xử lý sau, bởi vì nó có thể làm chậm hoặc ngăn chặn các quá trình oxy hóa sau này ở các vùng cục bộ nơi nó hiện diện. May mắn thay, nó dễ dàng được loại bỏ bằng cách khắc hóa học trong `H₃PO₄` nóng hoặc bằng cách oxy hóa nó sau khi lớp `Si₃N₄` phía trên được loại bỏ.
+
+Hiệu ứng "dải trắng" là một ví dụ cụ thể của việc có thể tăng trưởng nhiệt các lớp `Si₃N₄` mỏng trực tiếp trên silicon bằng cách phơi silicon với `N₂` hoặc `NH₃` ở nhiệt độ cao. Bước công nghệ này hiếm khi được dùng trong các cấu trúc `VLSI` vì độ dày `Si₃N₄` có thể tăng trưởng bị giới hạn. Tuy nhiên quá trình này có tiềm năng cho các điện môi mỏng trong tương lai trong các cấu trúc `MOS` và nó có ý nghĩa như một kỹ thuật trong nghiên cứu khuếch tán tạp chất như chúng ta sẽ thấy trong Chương `7`, vì vậy chúng ta sẽ xem xét ngắn gọn ở đây.
+
+Hầu hết các nỗ lực tăng trưởng nhiệt các lớp `Si₃N₄` trực tiếp trên silicon đều dùng `NH₃` thay vì `N₂` vì tốc độ tăng trưởng nhanh hơn đáng kể. Điều này có thể là kết quả của sản phẩm phụ hydro trong phản ứng `NH₃`, vốn có thể phản ứng với các lượng vết `O₂` trong môi trường để ngăn chặn các quá trình oxy hóa cạnh tranh xảy ra, mặc dù đây vẫn là suy đoán ở thời điểm này. Ở các nhiệt độ dưới khoảng `900°C`, oxy hóa được ưu tiên về mặt nhiệt động. Các màng `Si₃N₄` tăng trưởng trong `NH₃` thường dày từ `2.5` đến `7.5 nm`. Phản ứng hóa học được tin là:
+
+---
+
+> **[Biểu thức hóa học]**
+>
+> $$
+> 3Si + 4NH_3 \rightarrow Si_3N_4 + 6H_2
+> \tag{6.57}
+> $$
+
+---
+
+Các màng dường như tăng trưởng rất nhanh đến khoảng một nửa độ dày cuối cùng, rồi tăng trưởng chậm đến độ dày cuối cùng phụ thuộc chủ yếu vào nhiệt độ. Động học tăng trưởng chưa được hiểu đầy đủ nhưng thường được cho là xảy ra qua một quá trình bị giới hạn bởi phản ứng bề mặt tại mặt tiếp xúc `Si/Si₃N₄` lúc đầu (phần nhanh của sự tăng trưởng), tiếp theo là một pha tăng trưởng bị giới hạn bởi khuếch tán chậm hơn. Điều này nghe rất giống mô hình Deal-Grove cho oxy hóa. Tuy nhiên, dữ liệu động học cho quá trình nitride hóa nhìn chung đã được khớp với hoặc một biểu thức logarithm hoặc một biểu thức luật lũy thừa. Một ví dụ là định luật tăng trưởng thực nghiệm sau [6.48]:
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> X_N = a \, t^b
+> \tag{6.58}
+> $$
+>
+> trong đó:
+>
+> $$
+> a = 920\exp\!\left(\frac{-0.38\,\text{eV}}{kT}\right)\,\text{Å}
+> \qquad
+> b = 0.018\exp\!\left(\frac{0.24\,\text{eV}}{kT}\right)
+> \tag{6.59}
+> $$
+
+---
+
+và `t` tính bằng `min`. Các lớp `Si₃N₄` tăng trưởng nhiệt đạt đến độ dày `2.5 - 6 nm` trong vài giờ tăng trưởng ở nhiệt độ `950 - 1200°C`. Một số nghiên cứu gần đây đã cho thấy rằng các tốc độ tăng trưởng và độ dày cuối cùng này có thể được tăng cường đáng kể bằng cách tăng trưởng các lớp `Si₃N₄` trong plasma `N₂` hoặc `NH₃`. Các plasma như vậy tạo ra các loài phản ứng cao, cả trung hòa lẫn ion hóa, và cũng có thể tạo ra các điện trường để giúp thúc đẩy các quá trình vận chuyển. Đã có thể tăng trưởng các lớp `Si₃N₄` dày `10 - 30 nm` với các quá trình này. Động học tăng trưởng của chúng chưa được mô hình hóa.
+
+Các bộ mô phỏng công nghệ thương mại nhìn chung chưa cài đặt các mô hình cho oxy hóa `Si₃N₄` hoặc cho quá trình nitride hóa silicon. Trong nhiều ứng dụng, việc giả sử rằng `Si₃N₄` không bị oxy hóa chút nào trong môi trường `O₂` hoặc `H₂O` không phải là một xấp xỉ tệ, và đây là điều mà theo mặc định các bộ mô phỏng như `SUPREM IV` hiện đang thực hiện.
+
+## 6.5.12 Oxy hóa Silicide
+
+Bắt đầu từ cuối những năm `1970`, rõ ràng là điện trở suất của polysilicon sẽ sớm trở thành một giới hạn đối với tốc độ của các mạch `IC`. Trong hầu hết tất cả các công nghệ `MOS` hiện đại, polysilicon được dùng cho cả điện cực cổng lẫn các kết nối khoảng cách ngắn. Khi được dùng làm kết nối, các trễ `RC` gắn với việc nạp và xả các đường kết nối có thể trở nên đáng kể, nếu điện trở đường quá cao. Điện trở suất polysilicon không thể được làm thấp hơn nhiều so với khoảng `400 µΩcm` (hay khoảng `10 Ω/sq.` đối với màng dày `0.4 µm`). Điều này không chấp nhận được trong nhiều ứng dụng. Do đó, các silicide như `TiSi₂` và `WSi₂` đã bắt đầu được nghiên cứu vào năm `1980`. Chúng ta sẽ thảo luận các tính chất chính của các màng này trong Chương `11` khi chúng ta đề cập cụ thể đến các tiếp xúc và kết nối. Tuy nhiên, trong nhiều trường hợp, các silicide được lắng đọng trên đỉnh polysilicon để giảm điện trở của các đường poly, và cấu trúc hợp thành đôi khi được oxy hóa nhiệt. Chúng ta đã không dùng oxy hóa nhiệt của silicide trong quy trình công nghệ trong Chương `2` (thay vào đó, một lớp oxide lắng đọng được dùng trên `TiSi₂` — xem **Hình 2.38**).
+
+Cấu trúc thường gặp nhất khi silicide được oxy hóa được trình bày trong **Hình 6.38**. Phần silicide/poly của cấu trúc tạo thành điện cực cổng; lớp `SiO₂` phía dưới là điện môi cổng và oxide phía trên được tăng trưởng hoặc lắng đọng để cách điện silicide với các lớp kim loại khác có thể được lắng đọng phía trên nó. Các silicide nhìn chung không được dùng trực tiếp trên các oxide cổng vì có thể có các vấn đề về độ bám dính, các vấn đề oxy hóa, các vấn đề độ tin cậy oxide cổng, hoặc đơn giản là các hàm công không mong muốn trong cấu trúc `MOS`.
+
+---
+
+**Hình 6.38:** Oxy hóa cấu trúc polycide (silicide trên poly). `M` là kim loại được dùng để tạo silicide.
+
+---
+
+Khi các cấu trúc hợp thành như vậy được oxy hóa nhiệt trong `O₂` hoặc `H₂O`, một lớp `SiO₂` thường được thấy tăng trưởng trên bề mặt trên của silicide. Về nguyên tắc, hoặc `SiO₂` hoặc oxide kim loại `MOₓ` có thể tăng trưởng. Các tính toán nhiệt động [6.49] gợi ý rằng `MOₓ` thực ra được ưu tiên trên các silicide `Hf`, `Zr` và có lẽ `Ti`, và sự khác biệt giữa nhiệt hình thành của `MOₓ` và `SiO₂` là nhỏ trên nhiều silicide khác. Có sự không chắc chắn nhất định trong các tính toán này, nhưng chúng gợi ý rằng động học phải đóng một vai trò quan trọng trong việc hệ lựa chọn tạo thành `SiO₂` thay vì `MOₓ` trong hầu hết các trường hợp. `MOₓ` được thấy là oxide ưu tiên trên `HfSi₂` và trên `TiSi₂` ở nhiệt độ dưới `900°C`. Với vài ngoại lệ này, `SiO₂` dường như tăng trưởng trong tất cả các trường hợp khác. Khi nói động học đóng vai trò quan trọng, ý chúng ta là các nguyên tử `Si` phải phản ứng nhanh hơn với chất oxy hóa so với các nguyên tử kim loại, mặc dù cả hai phản ứng đều có thể xảy ra về mặt nhiệt động.
+
+Quá trình oxy hóa dường như tiến triển theo cách rất giống với oxy hóa silicon. `O₂` hoặc `H₂O` khuếch tán qua lớp `SiO₂` đến mặt tiếp xúc `SiO₂/silicide`, nơi một phản ứng tương tự như xảy ra trong oxy hóa silicon diễn ra. Các nguyên tử silicon cần thiết để tạo ra `SiO₂` có thể được cung cấp bởi khuếch tán lên phía trên từ poly, hoặc bởi sự phá vỡ các liên kết `M-Si`. Trong trường hợp sau, các nguyên tử kim loại sau đó sẽ khuếch tán xuống phía dưới để tạo thành một lớp silicide mới tại mặt tiếp xúc silicide/poly. Trong cả hai trường hợp, lớp silicide được bảo tồn. Cả hai khả năng đều được quan sát trong thực tế. `CrSi₂`, `CoSi₂`, `NiSi₂`, `PdSi` và `PtSi` đều dường như tăng trưởng oxide chủ yếu bằng cách phân ly silicide và khuếch tán kim loại đến mặt tiếp xúc silicide/poly, nơi silicide mới được tạo thành. `TiSi₂`, `WSi₂`, `TaSi₂` và có lẽ một số silicide khác tạo thành oxide bằng khuếch tán các nguyên tử `Si` từ lớp poly. Trong tất cả các trường hợp, động học tăng trưởng được mô tả tốt bởi mô hình tuyến tính-parabol quen thuộc:
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> \frac{X_O^2 - X_i^2}{B} + \frac{X_O - X_i}{B/A} = t
+> \tag{6.22}
+> $$
+
+---
+
+`B` được thấy là hoàn toàn giống nhau cho oxy hóa silicide và oxy hóa silicon. Điều này không quá ngạc nhiên vì quá trình là như nhau trong cả hai trường hợp — khuếch tán chất oxy hóa qua `SiO₂`. Các giá trị `B/A` trích xuất từ dữ liệu oxy hóa silicide đều lớn hơn đáng kể so với các giá trị tìm thấy cho oxy hóa silicon (thường lớn hơn `10 - 20` lần) [6.50]. Rõ ràng các quá trình đóng góp vào `B/A` trong cấu trúc silicide — khuếch tán kim loại hoặc silicon, phá vỡ liên kết `M-Si` hoặc `Si-Si`, v.v. — nhanh hơn nhiều so với các quá trình tương ứng trong oxy hóa silicon. Trong thực tế, điều này có nghĩa là sự tăng trưởng oxide thường chỉ đơn giản là parabol (tức là `B/A → ∞`).
+
+Có thể gặp phải các khó khăn khi oxy hóa các cấu trúc silicide như trình bày trong **Hình 6.38**. Ví dụ, nếu một lớp chắn như một lớp oxide tự nhiên mỏng tồn tại giữa các lớp poly và silicide (do làm sạch không đúng cách giữa các lần lắng đọng poly và silicide chẳng hạn), phản ứng tại mặt tiếp xúc đó có thể bị làm chậm đáng kể. Điều này có thể dẫn đến sự hình thành các khoảng trống (`void`) tại mặt tiếp xúc poly/silicide, rõ ràng là vì `Si` cần thiết để tạo thành `SiO₂` đang tăng trưởng chỉ có thể lấy được từ các vùng cục bộ nơi tồn tại các lỗ ghim (`pinhole`) trong lớp chắn. Với `TiSi₂`, nơi oxide kim loại hình thành ở nhiệt độ thấp, điều quan trọng là phải đảm bảo rằng môi trường oxy hóa không được bật cho đến khi các wafer đã đạt nhiệt độ cao trong lò. Cũng đã có các báo cáo về các khó khăn oxy hóa trong môi trường `O₂`, mặc dù những điều này không được quan sát nhất quán. Hầu hết dữ liệu trong tài liệu là cho các quá trình oxy hóa bằng `H₂O`. Cuối cùng, cũng có nhiều báo cáo về các vấn đề với tính toàn vẹn của oxide cổng nếu lớp polysilicon bên dưới silicide co lại đến dưới khoảng `200 nm` trong quá trình oxy hóa. Poly bị tiêu thụ trong quá trình, vì vậy ràng buộc này có thể giới hạn độ dày oxide tối đa có thể được tăng trưởng một cách tin cậy. Các công cụ mô phỏng thương mại nhìn chung đã cài đặt các mô hình cho lắng đọng silicide và cho các phản ứng giữa các kim loại khó nóng chảy và silicon để tạo thành silicide (xem Chương `11`), nhưng chưa cài đặt các mô hình oxy hóa cho silicide.
+
+## 6.5.13 Điện tích tại mặt tiếp xúc Si/SiO₂
+
+Ở gần đầu chương này, chúng ta đã thảo luận về bốn loại điện tích cơ bản thường được tìm thấy tại các mặt tiếp xúc bán dẫn/điện môi. **Hình 6.5** tóm tắt các điện tích này. Trong số bốn điện tích được minh họa, chỉ có hai loại (`Q_f` và `Q_{it}`) sẽ được thảo luận chi tiết ở đây. Các điện tích di động trong các lớp điện môi (`Q_m`) phần lớn đã được loại bỏ khỏi công nghệ silicon nhờ chú ý cẩn thận đến độ sạch trong quá trình sản xuất. Thỉnh thoảng chúng vẫn còn là một vấn đề, nhưng những tình huống như vậy hiếm gặp và thường được giải quyết nhanh chóng bằng cách tìm ra nguồn nhiễm bẩn (hóa chất, thao tác v.v.) và loại bỏ nó. Điện tích bẫy trong oxide (`Q_{ot}`) là mối lo ngại trong các ứng dụng mà cấu trúc linh kiện bị phơi với bức xạ ion hóa trong quá trình sản xuất hoặc trong quá trình sử dụng `IC` sau này (ví dụ trong các ứng dụng không gian). Nó cũng là mối lo ngại trong các linh kiện có dòng điện đi qua oxide như là một phần của hoạt động linh kiện bình thường (ví dụ `EPROM`), và tổng quát hơn trong các linh kiện `MOS` rất nhỏ vì các hiệu ứng hạt tải nóng (`hot carrier`) có thể tiêm hạt tải vào điện môi cổng. Tuy nhiên, cho đến thời điểm này, hầu như chưa có mô hình hóa định lượng nào về `Q_{ot}`. Các thí nghiệm đã xác định các cách tăng trưởng oxide nhằm giảm thiểu độ nhạy đối với `Q_{ot}`, chủ yếu thông qua ủ đúng cách và lựa chọn nhiệt độ tăng trưởng và môi trường phù hợp. Các phép đo `Q_{BD}` cũng đã trở nên phổ biến để đặc trưng hóa các lớp điện môi cổng mỏng. Phần lớn công trình về `Q_{ot}` này hiện vẫn mang tính thực nghiệm. Nhiều công trình hơn đã hướng vào việc hiểu và dự đoán `Q_f` và `Q_{it}`, và chúng ta sẽ tập trung vào công trình đó ở đây.
+
+Hầu như tất cả các kỹ thuật thực nghiệm sẵn có để khảo sát điện tích mặt tiếp xúc đều có bản chất điện. Vấn đề có thể được hình dung dễ dàng qua ảnh `TEM` trong **Hình 3.15**. Mật độ thông thường của `Q_f` và `Q_{it}` vào khoảng `10⁹ - 10¹² /cm²`, hay khoảng `1` điện tích trên mỗi `10³ - 10⁶` nguyên tử silicon tại mặt tiếp xúc. Các kỹ thuật vật lý như `TEM` đơn giản là không đủ nhạy để "tìm" các điện tích như vậy. Thực sự theo nghĩa đen, đây giống như "tìm kim trong bãi rơm". Các phương pháp điện như kỹ thuật `C-V` đã mô tả trước đây thực sự có độ nhạy cần thiết và được dùng phổ biến để đo `Q_f` và `Q_{it}`. Các phép đo điện như vậy cũng là các đại lượng được quan tâm trực tiếp từ quan điểm linh kiện. Tuy nhiên, thường không đơn giản để liên hệ các kết quả điện với một mô hình vật lý ở mức nguyên tử.
+
+Nhiều nỗ lực đã được thực hiện để liên hệ các điện tích mặt tiếp xúc `Si/SiO₂` với các cấu trúc ở mức nguyên tử cụ thể. **Hình 6.39** minh họa một số ý tưởng này, mặc dù các ý tưởng được biểu diễn trong hình này nên được xem là mang tính suy đoán. Hầu hết các nhà nghiên cứu ngày nay đồng ý rằng mặt tiếp xúc gần như là đột ngột về mặt nguyên tử. Nếu có một vùng chuyển tiếp giữa hai vật liệu, nó không dày hơn `1` hoặc `2` khoảng cách nguyên tử. Phần lớn oxide bao gồm chủ yếu các vòng tứ diện `SiO₄` (xem **Hình 6.4**), mỗi vòng có sáu nguyên tử silicon. Trong vùng gần mặt tiếp xúc, các vòng với số lượng tứ diện nhỏ hơn có thể hiện diện. Nhiều mô hình về điện tích mặt tiếp xúc gắn chúng với các nguyên tử silicon bị oxy hóa không hoàn toàn, thường được ký hiệu là `≡Si•` cho các nguyên tử silicon liên kết hóa trị ba. Dấu `•` có nghĩa là biểu diễn một liên kết treo (`dangling bond`) hay liên kết chưa bão hòa. Cả `Q_f` lẫn `Q_{it}` đều đã được mô hình hóa theo cách này, mặc dù có những khác biệt thực nghiệm rõ ràng giữa hai loại, và do đó phải có một sự khác biệt cấu trúc nào đó giữa hai điện tích.
+
+Sự khác biệt điện chính giữa `Q_f` và `Q_{it}` là `Q_f` là một điện tích dương cố định không thay đổi trong quá trình hoạt động linh kiện bình thường, trong khi `Q_{it}` liên lạc với bề mặt silicon và có thể bẫy lỗ trống hay điện tử để trở nên tích điện dương hoặc âm tùy thuộc vào vị trí của mức Fermi tại bề mặt. Một giải thích cho điều này đã được đề xuất là các `≡Si•` tương ứng với `Q_f` nằm ở vị trí xa hơn về mặt vật lý so với mặt tiếp xúc và do đó không thể bẫy hạt tải. Một giải thích khác là các mức năng lượng tương ứng với `Q_f` nằm ngoài vùng cấm silicon trong khi những mức gắn với `Q_{it}` nằm bên trong vùng cấm. Do đó, các trạng thái `Q_{it}` có thể bị tích điện và xả điện khi `E_F` dịch chuyển trong vùng cấm. Các giải thích khác đề xuất rằng các điện tích là do các liên kết bị kéo căng hoặc bị biến dạng tại mặt tiếp xúc, tức là ứng suất tại mặt tiếp xúc, gây ra bởi sự không khớp kích thước giữa `Si` và `SiO₂`, và rằng các sắp xếp liên kết khác nhau giải thích cho các loại điện tích khác nhau và các mức năng lượng khác nhau trong vùng cấm được tìm thấy cho các trạng thái `Q_{it}`. Dường như có mối tương quan giữa độ nhám của mặt tiếp xúc `Si/SiO₂` và mật độ điện tích kết quả (mặt tiếp xúc càng nhám thì `Q_f` và `Q_{it}` càng cao). Ngoài ra, hầu như luôn có mối tương quan mạnh giữa các giá trị `Q_f` và `Q_{it}` kết quả từ một quá trình nhất định, một lần nữa gợi ý nguồn gốc chung [6.51]. Nhiều mô hình khác cũng đã được đề xuất, nhưng chưa có mô hình nào được chứng minh là đúng một cách thuyết phục.
+**Hình 6.39:** Hình ảnh khái niệm ở mức nguyên tử về mặt tiếp xúc `Si/SiO₂`, cho thấy các nguồn gốc cấu trúc có thể có của `Q_F` và `Q_{IT}`. `Q_F` tương ứng với nguyên tử `Si⁺` dư; `Q_{IT}` được biểu diễn như một nguyên tử `Si` liên kết không hoàn toàn gần mặt tiếp xúc, được thụ động hóa trong ví dụ này bằng một liên kết `H`. Các vòng tròn lớn hơn tương ứng với các nguyên tử `Si`; các vòng tròn nhỏ hơn tương ứng với các nguyên tử `O`.
+
+---
+
+Dù nguồn gốc vật lý của `Q_f` và `Q_{it}` là gì, nhiều điều đã biết về cách chúng thay đổi theo các điều kiện công nghệ. Một trong những tập dữ liệu thực nghiệm đầu tiên như vậy được Deal trình bày dưới dạng "tam giác `Q_f`" được trình bày trong **Hình 6.40** [6.52]. Dữ liệu được trình bày ở đây là cho các wafer có hướng `(111)`. Các kết quả tương tự cũng được tìm thấy cho `(100)`, mặc dù các giá trị thấp hơn khoảng một hệ số ba. Các thí nghiệm đằng sau dữ liệu này được thực hiện bằng cách oxy hóa một wafer trong lò (hoặc ủ nó trong `Ar`) ở nhiệt độ được chỉ định, và sau đó rút wafer ra khỏi lò khá nhanh (vài giây) để "đông cứng" `Q_f` tương ứng với điều kiện đó. Các điểm trên mỗi đường cong dường như là các giá trị cân bằng cho môi trường và nhiệt độ đó. Tức là, như các mũi tên trên hình minh họa, bất kỳ điểm nào trên bất kỳ đường cong nào đều có thể đạt được đơn giản bằng cách thay đổi môi trường và nhiệt độ trong lò [6.53].
+
+Nói chung, nếu một sự thay đổi như vậy được thực hiện, sẽ cần một thời gian quá độ để đạt đến giá trị `Q_f` mới. Thời gian này dài hơn ở nhiệt độ thấp hơn. Các quá độ này và giá trị cuối cùng của `Q_f` đạt được sau khi ủ `Ar` ở nhiệt độ cao có thể được mô tả bằng thực nghiệm là [6.53]:
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> Q_f(t) =
+> \bigl(Q_f(0) - Q_{fe}\bigr)
+> \exp\!\left(-\frac{t}{\tau}\right)
+> + Q_{fe}
+> \tag{6.60}
+> $$
+>
+> trong đó:
+>
+> $$
+> \tau = 5.41\times10^{-10}
+> \exp\!\left(\frac{2.42\,\text{eV}}{kT}\right)\,\text{min}
+> $$
+>
+> $$
+> Q_{fe} = 5.24\times10^{9}
+> \exp\!\left(\frac{0.36\,\text{eV}}{kT}\right)\,\text{cm}^{-2}
+> \quad \text{cho (111)}
+> $$
+>
+> $$
+> Q_{fe} = 5.22\times10^{7}
+> \exp\!\left(\frac{0.69\,\text{eV}}{kT}\right)\,\text{cm}^{-2}
+> \quad \text{cho (100)}
+> $$
+
+---
+
+trong đó `Q_f` là mật độ điện tích oxide cố định trên `cm²` và `Q_{fe}` là giá trị cuối cùng hay giá trị cân bằng trong `Ar` cho bất kỳ nhiệt độ công nghệ nào (đường cong dưới cùng trong **Hình 6.40**). Trong hầu hết tất cả các trường hợp có ý nghĩa thực tiễn, ta muốn giảm thiểu `Q_f`, và do đó một bước ủ `Ar` ở nhiệt độ cao cuối cùng được dùng gần cuối chuỗi chế tạo linh kiện. Thời gian cần để đạt `Q_{fe}` chỉ là vài phút ở `1000°C`, nhưng nhiều giờ ở `700°C`. `N₂` là môi trường ủ phổ biến nhất cho đến gần đây vì nó rẻ hơn `Ar`. Tuy nhiên, khi kiểm soát `Q_f` đã trở nên quan trọng hơn trong các cấu trúc linh kiện hiện đại, người ta thấy rằng `Ar` là lựa chọn tốt hơn. Lý do là `Q_f` được thấy là tăng theo thời gian trong `N₂` sau khi quá độ được mô tả bởi các phương trình trên kết thúc. Tức là, `Q_f` giảm về `Q_{fe}` và sau đó bắt đầu tăng trở lại trong `N₂`. Lý do có lẽ là các phản ứng `Si/N₂` có thể diễn ra tại mặt tiếp xúc `Si/SiO₂` trong khi các phản ứng như vậy không diễn ra trong `Ar`. Do đó, các điều kiện ủ ít tới hạn hơn về thời gian và nhiệt độ nếu dùng `Ar`. Cuối cùng, cần chỉ ra rằng **Hình 6.40** cho thấy `Q_{fe}` về cơ bản là độc lập với nhiệt độ. Đây là cách mà "tam giác `Q_f`" đã được trình bày về mặt lịch sử [6.51]. Dữ liệu gần đây hơn mà Phương trình `6.60` dựa trên đó chỉ ra rằng `Q_{fe}` thực ra nhỏ hơn ở nhiệt độ cao hơn [6.53].
+
+---
+
+**Hình 6.40:** Sự biến đổi của điện tích oxide cố định `Q_f` theo nhiệt độ oxy hóa và môi trường [6.52]. Các mũi tên chỉ ra rằng các thay đổi về nhiệt độ hoặc môi trường dẫn đến các giá trị cân bằng của `Q_f` sau một thời gian quá độ phụ thuộc vào nhiệt độ. Các giá trị được trình bày là cho silicon `(111)`; các giá trị `(100)` thấp hơn khoảng một hệ số `3`.
+
+---
+
+Chúng ta đã đề cập ở trên rằng các trạng thái mặt tiếp xúc hay các bẫy (`Q_{it}`) có thể tương tác với hạt tải trong quá trình hoạt động linh kiện bình thường, bằng cách bắt hoặc giải phóng lỗ trống và điện tử. Điều này phân biệt `Q_{it}` với `Q_f`. Một sự khác biệt rất quan trọng khác giữa hai loại là các trạng thái `Q_{it}` có thể được thụ động hóa (`passivated`) thông qua ủ hydro ở nhiệt độ khá thấp (`300 - 500°C`) trong khi `Q_f` không bị ảnh hưởng bởi ủ như vậy. Bằng thụ động hóa, ý chúng ta muốn nói là một khi các bẫy `Q_{it}` được liên kết với các nguyên tử `H`, chúng không còn điện hoạt nữa và không còn bẫy hạt tải. Trạng thái mặt tiếp xúc được minh họa về mặt khái niệm trong **Hình 6.39** được trình bày là đã được thụ động hóa bằng một nguyên tử `H` liên kết. Cơ chế thụ động hóa được tin là đơn giản là sự khuếch tán hydro qua lớp `SiO₂` đến mặt tiếp xúc `Si/SiO₂` và phản ứng ở đó để tạo ra các liên kết `Si-H`. Vì quá trình này diễn ra dễ dàng ở các nhiệt độ mà các lớp kim loại có thể chịu được, bước này thường được thực hiện ở cuối cùng của quá trình chế tạo chip. Nếu nó được thực hiện sớm hơn, các liên kết `Si-H` có thể bị phá vỡ ở các nhiệt độ cao hơn được dùng cho khuếch tán, ủ cấy ion v.v., và hydro sau đó có thể khuếch tán ra ngoài.
+
+Do tầm quan trọng của quá trình thụ động hóa này, nó đã được nghiên cứu cẩn thận qua nhiều năm nhằm hiểu không chỉ nguồn gốc của bản thân các trạng thái mặt tiếp xúc mà còn cả cách thụ động hóa hoạt động. Hầu hết các mô hình ở mức nguyên tử cho các trạng thái mặt tiếp xúc đều dựa trên silicon dư hoặc các nguyên tử silicon liên kết không hoàn toàn, với khuyết tật silicon hóa trị ba `≡Si•` mà chúng ta đã thảo luận ở trên là ứng viên hàng đầu. Quá trình ủ hay thụ động hóa thường được mô hình hóa với sự khuếch tán hydro phân tử đến mặt tiếp xúc `Si/SiO₂`, tiếp theo là sự phân ly hydro để tạo ra hydro nguyên tử, rồi sau đó là liên kết hóa học giữa khuyết tật `≡Si•` và `H`. Điều này thường được biểu diễn đơn giản là:
+
+---
+
+> **[Biểu thức hóa học]**
+>
+> $$
+> H_2 \leftrightarrow 2H
+> \quad \text{tiếp theo là} \quad
+> \equiv Si{\bullet} + H \leftrightarrow \equiv SiH
+> \tag{6.61}
+> $$
+
+---
+
+Cả hai phản ứng đều thuận nghịch. Bản thân quá trình ủ đã được chứng minh là tuân theo sự phụ thuộc luật lũy thừa theo thời gian, theo dạng sau [6.54]:
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> Q_{it} = \frac{Q_{it}(0)}{(1 + Kt)^{\eta}}
+> \tag{6.62}
+> $$
+>
+> trong đó:
+>
+> $$
+> K = 8.4\times10^{11}
+> \exp\!\left(\frac{-1.21\,\text{eV}}{kT}\right)\,\text{sec}^{-1}
+> \quad \text{và} \quad \eta \approx 0.55 \text{ cho đế (100)}
+> $$
+
+---
+
+Giá trị cuối cùng sau khi ủ nằm dưới `10¹⁰ cm⁻²` ở tất cả các nhiệt độ ủ bình thường (`350 - 500°C`). Thời gian vào khoảng `30 phút` là cần thiết để đạt đến giá trị cực tiểu này ở `350°C`; thời gian ngắn hơn là đủ ở nhiệt độ cao hơn. Động học dường như hơi khác một chút đối với các bề mặt `(111)` [6.54]. Một số mô hình vật lý chi tiết đã được đề xuất để giải thích cho các động học này [6.54 - 6.56].
+
+Cần đưa ra một số điểm bổ sung liên quan đến `Q_{it}`. Thông thường, quá trình khuếch tán `H₂` từ môi trường đến mặt tiếp xúc `Si/SiO₂` bị bỏ qua trong động học ủ. Điều này hầu như luôn luôn là hợp lý bởi vì:
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> D_{H_2} \cong 7.2\times10^{-5}
+> \exp\!\left(\frac{-0.58\,\text{eV}}{kT}\right)\,\text{cm}^2\text{sec}^{-1}
+> \tag{6.63}
+> $$
+
+---
+
+điều này ngụ ý thời gian trễ khuếch tán khá ngắn qua các lớp oxide bình thường. Việc động học ủ `Q_{it}` nói chung là độc lập với độ dày oxide càng củng cố thêm lập luận này. Tuy nhiên, nhiều công nghệ `IC` hiện đại sử dụng cổng polysilicon và `H₂` có thể phải đi dưới các mép của các màng như vậy rồi khuếch tán bên dưới chúng theo chiều ngang. Trong các cấu trúc có diện tích lớn như tụ điện `MOS`, điều này có thể liên quan đến thời gian khuếch tán đáng kể [6.56]. Tuy nhiên, các cổng polysilicon có ưu điểm là ngăn chặn khuếch tán ra ngoài của `H₂`, để quá trình ủ khoan dung hơn đối với sự phơi nhiệt độ cao so với các bề mặt oxide trần hoặc các cấu trúc được phủ `Al`.
+
+Các oxide được phủ `Al` thực sự không cần một nguồn `H₂` bên ngoài do phản ứng:
+
+---
+
+> **[Biểu thức hóa học]**
+>
+> $$
+> Al + OH \rightarrow \text{"AlO"} + H
+> \tag{6.64}
+> $$
+
+---
+
+xảy ra tại mặt tiếp xúc `Al/SiO₂`. Người ta tin rằng các bước làm sạch trước khi lắng đọng `Al` để lại các lượng vết nước trên bề mặt oxide, đây là lý do cho sự hiện diện của `OH` trong phản ứng trên. Quá trình này đôi khi được gọi là phản ứng "Alneal". Oxide được ký hiệu là "AlO" thay vì `Al₂O₃` vì thành phần chưa biết và có lẽ thay đổi trong quá trình ủ. Cuối cùng, cũng có thể cấy ion `H` xuyên qua oxide đến gần mặt tiếp xúc `Si/SiO₂`. Quá trình này có thể cung cấp `H` cần thiết cho việc ủ `Q_{it}`, mặc dù quá trình này không phổ biến vì các kỹ thuật khác sử dụng lò ủ thì đơn giản hơn.
+
+Tóm lại, các công nghệ silicon hiện đại sử dụng kết hợp một bước ủ `Ar` (hoặc `N₂`) ở nhiệt độ cao vào khoảng `900 - 1000°C` như là bước nhiệt độ cao cuối cùng để giảm `Q_f` về giá trị cực tiểu. Ngoài ra, một bước ủ ở nhiệt độ thấp hơn `400 - 500°C`, thường trong "Khí tạo" (`Forming Gas`) (`10% H₂` trong `N₂`), được dùng để giảm thiểu `Q_{it}`. Sự kết hợp của hai bước công nghệ này làm giảm cả hai loại điện tích xuống khoảng `10¹⁰ cm⁻²` (hoặc thấp hơn) trên các bề mặt `(100)`, với các giá trị hơi lớn hơn một chút trên các bề mặt `(111)`. Các giá trị này đủ thấp để chúng không có ảnh hưởng đáng kể lên hầu hết các linh kiện.
+
+Các chương trình mô phỏng công nghệ thương mại thường không chứa các mô hình cho điện tích mặt tiếp xúc `Si/SiO₂`. Vì các điện tích này có thể có ảnh hưởng đáng kể lên hiệu năng điện của linh kiện, các bộ mô phỏng linh kiện thường cho phép người dùng nhập các giá trị `Q_f` và `Q_{it}`, sau đó được dùng để tính toán đặc tuyến `I-V`.
+
+## 6.5.14 Mô phỏng mô-đun oxy hóa hoàn chỉnh
+
+Nhiều cấu trúc linh kiện hiện đại liên quan đến các hình học phức tạp và nhiều bước công nghệ. Cách thực sự duy nhất để mô phỏng các quá trình như vậy là dùng một chương trình mô phỏng máy tính như `SUPREM IV`. Tuy nhiên, điều quan trọng cần lưu ý là nhiều mô hình mà chúng ta đã thảo luận trong các mục trước phần lớn được phát triển một cách độc lập với nhau. Ví dụ, một nhà nghiên cứu đang nghiên cứu động học tăng trưởng oxide mỏng có thể đề xuất một định luật tăng trưởng mới dựa trên các phép đo thực nghiệm. Nhưng các mô hình như vậy thường được phát triển dựa trên các cấu trúc thực nghiệm đơn giản, có thể là các quá trình oxy hóa phẳng trong ví dụ này. Khi một mô hình mới như vậy được cài đặt trong một chương trình như `SUPREM`, nó có thể được áp dụng cho các cấu trúc không phẳng hoặc ở các nhiệt độ ngoài phạm vi của các thí nghiệm ban đầu dẫn đến việc phát triển mô hình. Các mô hình mới cũng thường được áp dụng trong các tình huống mà nhiều hiệu ứng vật lý đang xảy ra đồng thời. Ví dụ, mô hình oxide mỏng mới trong ví dụ này có thể được áp dụng cho một đế pha tạp rất nặng và kết quả là các tạp chất có thể phân ly vào oxide trong quá trình tăng trưởng, có thể làm thay đổi động học tăng trưởng theo những cách mà nhà nghiên cứu đang phát triển mô hình không lường trước được. Vì tất cả các vấn đề này, các bộ mô phỏng công nghệ hoàn chỉnh thường cung cấp bài kiểm tra toàn diện nhất cho các mô hình mới. **Hình 6.41** và **6.42** trình bày hai ví dụ.
+
+**Hình 6.41** trình bày một ví dụ đơn giản về mô phỏng một quá trình cách ly điển hình. Trong trường hợp này, silicon được khắc trước khi tăng trưởng oxide trường, để bề mặt oxide cuối cùng nằm ở gần cùng mức với bề mặt silicon ban đầu. Điều này tạo ra hình dạng "đầu chim" (`bird's head`) nổi tiếng, vì trong mô phỏng do oxy hóa bên dưới mặt nạ nitride theo chiều ngang. **Hình 6.41** minh họa một trong những tính năng mạnh mẽ của các bộ mô phỏng hiện đại — khả năng "quan sát" những thứ không dễ quan sát bằng thực nghiệm. Trong trường hợp này, sự tiến triển theo thời gian của cấu trúc được trình bày.
+
+---
+
+**Hình 6.41:** Mô phỏng cấu trúc cách ly `LOCOS` lõm sử dụng bộ mô phỏng `ATHENA` [6.12]. Cấu trúc ban đầu (trên cùng bên trái) được tạo thành bằng cách lắng đọng một cấu trúc `SiO₂/Si₃N₄` tiếp theo là khắc bộ đôi lớp này ở phía bên trái. Sau đó silicon được khắc để tạo ra oxide lõm và cấu trúc được oxy hóa trong `90 phút` ở `1000°C` trong `H₂O`. Sự tiến triển theo thời gian của hình dạng "đầu chim" trong quá trình oxy hóa được trình bày trong các mô phỏng.
+
+---
+
+**Hình 6.42** trình bày một ví dụ về một quá trình cách ly phức tạp hơn. Trong trường hợp này, cần hai lần lắng đọng nitride (với độ dày khác nhau) để tạo ra cấu trúc ban đầu, cùng với việc khắc silicon để tạo ra oxide trường lõm. Lớp nitride thứ hai (mỏng hơn) che mặt vách bên của silicon đã khắc, giảm thiểu oxy hóa trong vùng linh kiện tích cực bên dưới lớp nitride dày hơn. Trong cấu trúc cuối cùng ở góc trên bên phải của hình, "nắp" (`flap`) nitride mỏng này đã bật lên để kiểm soát các ứng suất phát triển trong quá trình oxy hóa. Mô phỏng này đã kích hoạt nhiều mô hình phụ thuộc ứng suất mà chúng ta đã mô tả trước đó trong chương này. Lưu ý rằng có sự phù hợp hợp lý với cấu trúc thực nghiệm cũng được trình bày trong hình. Ví dụ này một lần nữa minh họa một trong những khả năng độc đáo của các bộ mô phỏng. Các mức ứng suất được tính toán trong `SiO₂` được trình bày ở phần dưới bên trái của hình. Thông tin như thế này thường hữu ích trong việc hiểu liệu một quá trình cụ thể có tạo ra các khuyết tật trong đế bên dưới hay không. Bản thân các đường đồng mức ứng suất thường hoàn toàn không quan sát được bằng thực nghiệm. Tất cả những gì có thể làm bằng thực nghiệm là quan sát ở cuối quá trình, liệu có tạo ra khuyết tật trong đế hay không. Do đó, mô phỏng cung cấp một công cụ thiết kế mạnh mẽ trong việc hiểu các quá trình và ảnh hưởng của chúng.
+
+---
+
+**Hình 6.42:** Mô phỏng một cấu trúc cách ly tiên tiến (quá trình `SWAMI` được phát triển ban đầu bởi `Hewlett-Packard`), sử dụng bộ mô phỏng `ATHENA` [6.12]. Cấu trúc trước khi oxy hóa ở trên cùng bên trái. Cấu trúc này được tạo bằng cách lắng đọng một lớp oxide tiếp theo là một lớp `Si₃N₄` dày, cả hai đều được khắc bỏ ở phía bên trái. Một bước khắc silicon ở phía bên trái tiếp theo là lắng đọng lần thứ hai oxide và nitride. Các lớp này sau đó được khắc bỏ ở phía ngoài cùng bên trái, để lại bộ đôi mỏng `SiO₂/Si₃N₄` phủ lên mặt vách bên của silicon. Sau đó tiến hành oxy hóa `H₂O` trong `450 phút` ở `1000°C`, tạo ra cấu trúc ở trên cùng bên phải. Một cấu trúc thực nghiệm được chế tạo với một quy trình công nghệ tương tự được trình bày ở dưới cùng bên phải. Các mức ứng suất trong `SiO₂` được trình bày ở cuối quá trình oxy hóa ở dưới cùng bên trái.
+
+---
+
+## 6.6 Các giới hạn và xu hướng tương lai trong công nghệ và mô hình
+
+Oxy hóa chắc chắn vẫn là một phần không thể thiếu của công nghệ silicon. Tuy nhiên, khi các cấu trúc linh kiện thu nhỏ về kích thước, có thể có một số thay đổi trong cách quá trình được dùng. Chắc chắn sẽ có nhiều ứng dụng hơn của các quá trình ở nhiệt độ thấp hơn nhằm kiểm soát khuếch tán tạp chất. Oxide tăng trưởng chậm hơn ở nhiệt độ thấp. Có hai cách tiếp cận cơ bản để thu được các lớp `SiO₂` tương đối dày ở nhiệt độ thấp hơn. Cách thứ nhất là sử dụng áp suất cao trong quá trình oxy hóa, một chiến lược đã được dùng trong sản xuất. Các hệ thống hoạt động ở `10 - 25` atmosphere có sẵn trên thị trường và đôi khi được dùng, đặc biệt cho các quá trình `LOCOS` trong đó cần các oxide dày. Lựa chọn thứ hai là dùng các màng `SiO₂` lắng đọng. Chúng ta sẽ thảo luận về lắng đọng trong Chương `9`, nhưng các quá trình `CVD` hay `LPCVD` tương đối đơn giản có thể được dùng để lắng đọng các lớp `SiO₂` dày. Các quá trình như vậy ngày càng được sử dụng nhiều hơn. Các tính chất lý tưởng của mặt tiếp xúc `Si/SiO₂` có thể được bảo tồn với các oxide lắng đọng, hoặc bằng cách trước tiên tăng trưởng một oxide nhiệt mỏng và sau đó lắng đọng `SiO₂` trên đỉnh nó, hoặc bằng cách ủ oxide lắng đọng sau khi lắng đọng. (Các bước ủ như vậy thường bao gồm một bước oxy hóa nhiệt ngắn, tăng trưởng một oxide nhiệt mỏng bên dưới oxide lắng đọng, một lần nữa tạo ra một mặt tiếp xúc gần như lý tưởng.)
+
+Xu hướng thứ hai có khả năng xảy ra trong tương lai là việc dùng các lớp điện môi "hợp thành" (`composite`). `SIA NTRS` (**Bảng 6.1**) yêu cầu các điện môi cổng cực kỳ mỏng trong các thế hệ công nghệ tương lai. Khó có khả năng các màng `SiO₂` thuần túy có thể đáp ứng tất cả các yêu cầu của lộ trình công nghệ này. Các lớp `SiO₂` rất mỏng dẫn dòng điện quá mức (do hiệu ứng tunnel) và chúng không phải là mặt nạ đủ tốt chống lại sự xuyên thấu tạp chất từ các cổng polysilicon. Khuếch tán boron qua các lớp `SiO₂` mỏng này là một vấn đề đặc biệt. Ngoài ra, cũng sẽ mong muốn có một điện môi cổng với hằng số điện môi cao hơn `SiO₂` nhằm cải thiện các đặc tính điện của các transistor `MOS` hoặc để tăng lưu trữ điện tích trong các tế bào `DRAM`.
+
+Vì những lý do này, đã có một lượng công trình đáng kể trong những năm gần đây về các điện môi oxynitride hợp thành. Các màng này lần đầu tiên thường được chuẩn bị bằng cách phơi các màng `SiO₂` tăng trưởng nhiệt trong môi trường `NH₃`. Điều này tạo ra một màng điện môi được gọi tổng quát là oxynitride, thường được ký hiệu là `SiOₓNᵧ`, nhưng thường thay đổi về thành phần xuyên suốt màng. Đối với các lần phơi `NH₃` tương đối ngắn, việc định profile hóa học qua các điện môi hợp thành thu được đã cho thấy các vùng giàu nitrogen được hình thành cả tại mặt tiếp xúc `Si/SiO₂` lẫn tại mặt tiếp xúc `SiO₂/môi trường` phía trên. Hai lớp "nitride" này bịt kín lớp `SiO₂` xen giữa và có thể bẫy hydro trong `SiO₂`. Vì hydro bị bẫy này có thể gây ra các vấn đề không ổn định trong các linh kiện, các công trình gần đây hơn đã tập trung vào việc dùng các môi trường `N₂O` hoặc `NO` để tạo ra oxynitride. Các môi trường này không chứa hydro. Ngoài ra, các quá trình loại bỏ vùng "nitride" phía trên và cho phép hydro bị bẫy thoát ra ngoài cũng đã được khám phá. Cuối cùng, các lần cấy ion nitrogen vào đế và oxy hóa tiếp theo cũng đã được nghiên cứu.
+
+Những lợi ích của điện môi oxynitride xuất phát từ các liên kết `Si-N` mạnh hơn được hình thành gần mặt tiếp xúc `Si/SiO₂`. Mặt tiếp xúc oxynitride này có thể tạo ra các điện môi cổng chắc chắn hơn vì các liên kết `Si-N` mạnh hơn có khả năng chống phá vỡ tốt hơn trong quá trình nhấn mạnh (`stressing`) bởi hạt tải nóng. Các oxynitride cũng có khả năng chống xuyên thấu tạp chất qua điện môi tốt hơn. Cuối cùng, hằng số điện môi tương đối của `Si₃N₄` cao hơn đáng kể so với `SiO₂` (≈ `7.5` so với `3.9`). Trong khi các oxynitride không đạt được các giá trị cao tới `7.5`, vì chúng là các vật liệu hợp thành, chúng thường cải thiện so với `SiO₂`. Vì tất cả những lý do này, các oxynitride có khả năng được sử dụng ngày càng nhiều hơn trong tương lai làm điện môi cổng.
+
+Các hiệu ứng `2D` và thậm chí `3D` sẽ ngày càng trở nên quan trọng hơn trong các cấu trúc nhỏ. Những điều này bao gồm không chỉ việc dự đoán các hình dạng của oxide tăng trưởng trên các cấu trúc không phẳng, mà còn dự đoán chính xác các ứng suất được tạo ra trong oxide và trong đế silicon. Việc kiểm soát độ dày oxide ở mức nguyên tử sẽ cần thiết cho các điện môi mỏng. Các khoảng cách liên kết `Si-Si` trong `SiO₂` là một phần của `nm`; đây là một tỷ lệ đáng kể của tổng độ dày các màng sẽ được tăng trưởng trong tương lai cho điện môi cổng và các ứng dụng khác. Cuối cùng, các vấn đề thống kê cũng có thể trở nên quan trọng. Ví dụ, mật độ điện tích oxide `10¹⁰ cm⁻²` tương ứng với `1` điện tích trong một diện tích khoảng `0.1 × 0.1 µm`. Khi kích thước linh kiện tiến gần đến các kích thước này, chúng ta có thể thấy các biến động từ linh kiện này sang linh kiện khác về số lượng các điện tích như vậy nằm trong vùng tích cực của linh kiện.
+
+## 6.7 Tóm tắt các ý tưởng chính
+
+Oxy hóa nhiệt đã là nền tảng của công nghệ silicon kể từ khi ra đời. Thực ra, chính khả năng dễ dàng tăng trưởng các lớp `SiO₂` mới là điều phân biệt công nghệ silicon với tất cả các chất bán dẫn khác. Các lớp `SiO₂` bám dính tốt vào silicon, tương đối trơ về mặt hóa học, che mặt khuếch tán tạp chất, chặn các lần cấy ion và dễ dàng tạo hình. Tuy nhiên, sức mạnh thực sự của `SiO₂` nằm ở mặt tiếp xúc điện gần như hoàn hảo mà nó tạo ra với silicon. Các điện tích có thể tái lập được và nhỏ, và mặt tiếp xúc gần như đột ngột về mặt nguyên tử. Các tính năng này cho phép các tiếp giáp được thụ động hóa gần như lý tưởng tại các bề mặt silicon và chúng cho phép xây dựng dễ dàng trong silicon nhiều loại cấu trúc linh kiện phụ thuộc tới hạn vào các tính chất bề mặt (đặc biệt là các cấu trúc `MOS`). Ngay cả các linh kiện không bị kiểm soát chủ yếu bởi bề mặt như transistor lưỡng cực, cũng không bị suy giảm đặc tính điện bởi các hiệu ứng bề mặt ký sinh. Không có mặt tiếp xúc bán dẫn/điện môi nào khác có tất cả các tính chất mong muốn này.
+
+Vì `SiO₂` là một phần quan trọng như vậy của công nghệ silicon, động học tăng trưởng của các lớp này trên silicon đã được nghiên cứu cẩn thận trong nhiều năm. Cơ chế tăng trưởng cơ bản là vận chuyển chất oxy hóa qua lớp `SiO₂` đến mặt tiếp xúc `Si/SiO₂`, nơi một phản ứng hóa học đơn giản tạo ra các lớp oxide mới. Sự tăng trưởng nhìn chung tuân theo một định luật tuyến tính-parabol đơn giản. Mô hình cơ bản về oxy hóa này đã được mở rộng trong những năm gần đây để xử lý nhiều tình huống mà công thức ban đầu còn thiếu sót. Những điều này bao gồm các đế pha tạp nặng, các môi trường hỗn hợp, các hiệu ứng `2D` và các oxide mỏng. Các ý tưởng cơ bản tương tự đã được áp dụng cho các vật liệu khác như polysilicon và silicide, vốn phổ biến trong công nghệ silicon và thường được oxy hóa. Chúng ta chưa đề cập chi tiết trong chương này đến sự tương tác của oxy hóa với các bước công nghệ khác như khuếch tán. Khuếch tán tăng cường hay kìm hãm do oxy hóa và phân bố lại tạp chất cũng như phân ly trong quá trình oxy hóa là các hiệu ứng quan trọng. Chúng ta sẽ thảo luận chúng chi tiết hơn trong Chương `7` sau khi chúng ta mô tả các ý tưởng cơ bản về khuếch tán tạp chất. Cuối cùng, nhiều mô hình và cơ chế vật lý được mô tả trong chương này đã được cài đặt trong các bộ mô phỏng công nghệ. Các bộ mô phỏng ngày nay có khả năng dự đoán chính xác các quá trình oxy hóa trong các cấu trúc `VLSI` hiện đại. Khi có sự hiểu biết mới phát triển, đặc biệt là đối với các cấu trúc rất nhỏ, các mô hình mới được tích hợp vào các bộ mô phỏng này để khả năng của chúng không ngừng được cải thiện.
+## 6.8 Tài liệu tham khảo
+
+[6.1]. "National Technology Roadmap for Semiconductors," SIA, 1997
+
+[6.2]. P. J. Jorgensen, "Effect of an Electric Field on Silicon Oxidation," *J. Chem. Phys.*, vol. 37, p. 874, 1962.
+
+[6.3]. J. R. Ligenza and W. G. Spitzer, *Phys. and Chem. Solids*, vol. 14, p. 131, 1960.
+
+[6.4]. E. Rosencher, A. Straboni, S. Rigo and G. Amsel, "An ¹⁸O Study of the Thermal Oxidation of Silicon in Oxygen," *Appl. Phys. Lett.*, vol. 34, p. 254, 1979.
+
+[6.5]. R. Pretorius, *J. Electrochem. Soc.*, vol 128, p. 107, 1981.
+
+[6.6]. B. E. Deal and A. S. Grove, "General Relationship for the Thermal Oxidation of Silicon," *J. Appl. Phys.*, vol. 36, p. 3770, 1965.
+
+[6.7]. B. E. Deal, "Standardized Terminology for Oxide Charges Associated with Thermally Oxidized Silicon," *IEEE Trans. Elec. Dev.*, vol. ED-27, p. 606, 1980.
+
+[6.8]. W. A. Pliskin and E. E. Conrad, "Nondestructive Determination of Thickness and Refractive Index of Transparent Films," *IBM J. Res. and Dev.*, vol. 8, p. 43, 1964.
+
+[6.9]. D. K. Schroder, *Semiconductor Material and Device Characterization*, John Wiley and Sons, 1990.
+
+[6.10]. E. H. Nicollian and J. R. Brews, *MOS (Metal Oxide Semiconductor) Physics and Technology*, John Wiley and Sons, 1982.
+
+[6.11]. TSUPREM IV là phiên bản của SUPREM IV bởi Avanti! Inc. SUPREM IV ban đầu được viết tại Đại học Stanford bởi M. E. Law, C. S. Rafferty và R. W. Dutton.
+
+[6.12]. ATHENA là phiên bản của SUPREM IV bởi Silvaco Inc.
+
+[6.13]. A. Reisman, E. H. Nicollian, K. C. Williams and C. J. Merz, "The Modeling of Silicon Oxidation from 1 × 10⁻⁵ to 20 Atmospheres," *J. Elect. Mat.*, vol. 16, p. 45, 1987.
+
+[6.14]. E. Nicollian and A. Reisman, "A New Model for the Thermal Oxidation Kinetics of Silicon," *J. Electronic Mat.*, vol. 17, p. 263, 1988.
+
+[6.15]. C. J. Han and C. R. Helms, "Parallel Oxidation Mechanism for Si Oxidation in Dry O₂," *J. Electrochem. Soc.*, vol.134, p. 1297, 1987.
+
+[6.16]. K. Hirabayashi and J. Iwamura, "Kinetics of Thermal Growth of HCl-O₂ Oxides on Silicon," *J. Electrochem. Soc.*, vol 120, p. 1595, 1973.
+
+[6.17]. R. Ghez and Y. J. van der Meulen, "Kinetics of Thermal Growth of Ultra-Thin layers of SiO₂ on Silicon, Part I: Experiment and Part II: Theory," *J. Electrochem. Soc.*, vol. 119, p. 530 and p. 1100, 1972.
+
+[6.18]. H. Z. Massoud, J. D. Plummer and E. A. Irene, "Thermal Oxidation of Silicon in Dry Oxygen: Growth-Rate Enhancement in the Thin Regime I. Experimental Results, II. Physical Mechanisms," *J. Electrochem. Soc.*, vol. 132, p. 2685 and 2693, 1985.
+
+[6.19]. E. A. Irene and E. A. Lewis, "Thermionic Emission Model for the Initial Regime of Silicon Oxidation," *Appl. Phys. Lett.*, vol. 51, p. 767, 1987.
+
+[6.20]. A. G. Revesz, *Phys. Stat. Sol.*, vol. 58, p. 107, 1980.
+
+[6.21]. W. A. Tiller, *J. Electrochem. Soc.*, vol. 130, p. 501, 1983.
+
+[6.22]. R. R. Razouk, L. N. Lie and B. E. Deal, "Kinetics of High Pressure Oxidation of Silicon in Pyrogenic Steam," *J. Electrochem. Soc.*, vol. 128, p. 2214, 1981.
+
+[6.23]. S. M. Hu, "A New Oxide Growth Law, and the Thermal Oxidation of Silicon," *Appl. Phys. Lett.*, May 1983.
+
+[6.24]. J. R. Ligenza, "Effect of Crystal Orientation on Oxidation Rates of Silicon in High Pressure Steam," *J. Phys. Chem.*, vol. 65, p. 2011, 1961.
+
+[6.25]. E. A. Irene, H. Z. Massoud and E. Tierney, "Silicon Oxidation Studies: Silicon Orientation Effects on Thermal Oxidation," *J. Electrochem. Soc.*, vol. 133, p. 1253, 1986.
+
+[6.26]. B. E. Deal, D. W. Hess, J. D. Plummer and C. P. Ho, "Kinetics of the Thermal Oxidation of Silicon in O₂/H₂O and O₂/Cl₂ Mixtures," *J. Electrochem. Soc.*, vol. 125, p. 339, 1978.
+
+[6.27]. B. E. Deal, "Thermal Oxidation Kinetics of Silicon in Pyrogenic H₂O and 5% HCl/H₂O Mixtures," *J. Electrochem. Soc.*, vol. 125, p. 576, 1978.
+
+[6.28]. D. B. Kao, J. P. McVittie, W. D. Nix and K. C. Saraswat, "Two-Dimensional Thermal Oxidation of Silicon - I. Experiments," *IEEE Trans. Elec. Dev.*, vol. ED-34, p. 1008, 1987.
+
+[6.29]. D. B. Kao, J. P. McVittie, W. D. Nix and K. C. Saraswat, "Two-Dimensional Thermal Oxidation of Silicon - II. Modeling Stress Effects in Wet Oxides," *IEEE Trans. Elec. Dev.*, vol. ED-35, p. 25, 1988.
+
+[6.30]. P. Sutardja and W. G. Oldham, "Modeling of Stress Effects in Silicon Oxidation," *IEEE Trans. Elec. Dev.*, vol. 36, p. 2415, 1989.
+
+[6.31]. C. Rafferty, Ph.D. Thesis, Stanford University, 1989.
+
+[6.32]. P. B. Griffin and C. S. Rafferty, "A Viscous Nitride Model for Nitride/Oxide Isolation Structures," *IEDM Technical Digest*, p. 741, 1990.
+
+[6.33]. L. M. Landsberger and W. A. Tiller, "Two-Step Oxidation Experiments to Determine Structural and Thermal History Effects in Thermally-Grown SiO₂ Films on Si," *J. Electrochem. Soc.*, vol. 137, p. 2825, 1990.
+
+[6.34]. K. Imai and K. Yamabe, "Nonplanar Silicon Oxidation in Dry O₂ + NF₃," *Appl. Phys. Lett.*, vol. 56, p. 280, 1990.
+
+[6.35]. L. M. Landsberger, D. B. Kao and W. A. Tiller, "Conformal Two-Dimensional SiO₂ Layers on Silicon Grown by Low Temperature Corona Discharge," *J. Electrochem. Soc.*, vol. 135, p. 1766, 1988.
+
+[6.36]. P. S. Dobson, "The Effect of Oxidation on Anomalous Diffusion in Silicon," *Philosophical Mag.*, vol. 24, p. 567, 1971.
+
+[6.37]. P. M. Fahey, P. B. Griffin and J. D. Plummer, "Point Defects and Dopant Diffusion in Silicon," *Reviews of Modern Physics*, vol. 61, p. 289, 1989.
+
+[6.38]. S. M. Hu, "Formation of Stacking Faults and Enhanced Diffusion in the Oxidation of Silicon," *J. Appl. Physics*, vol. 45, p. 1567, 1974.
+
+[6.39]. S. Dunham, "Interaction of Silicon Point Defects with Silicon Oxide Films," *J. Appl. Physics*, vol. 71, p. 685, 1992.
+
+[6.40]. C. P. Ho and J. D. Plummer, "Si/SiO₂ Interface Oxidation Kinetics: a Physical Model for the Influence of High Substrate Doping Levels. I. Theory and II. Comparison with Experiment," *J. Electrochem. Soc.*, vol. 126, p. 1516 and 1523, 1979.
+
+[6.41]. E. Biermann, H. H. Berger, P. Linke and B. Muller, "Oxide Growth Enhancement on Highly N-Type Doped Silicon Under Steam oxidation," *J. Electrochem. Soc.*, vol. 143, p. 1434, 1996.
+
+[6.42]. S. S. Choi, M. Z. Numan, W. K. Chu and E. A. Irene, "Anomalous Oxidation rate of Silicon Implanted with Very High Doses of Arsenic," *Appl. Phys. Lett.*, vol. 51, p. 1001, 1987.
+
+[6.43]. F. Lau, L. Mader, C. Mazure, C. Warner and M. Orlowski, "A Model for Phosphorus Segregation at the Silicon-Silicon Dioxide Interface," *Appl. Phys. A*, vol. 49, p. 671, 1989.
+
+[6.44]. T. Kamins, *Polycrystalline Silicon for Integrated Circuit Applications*, 2nd edition, Kluwer Academic Publishers, 1998.
+
+[6.45]. T. Enomoto, R. Ando, H. Morita and H. Nakayama, "Thermal Oxidation Rate of a Si₃N₄ Film and Its Masking Effect Against Oxidation of Silicon," *Jpn. J. Appl. Phys.*, vol. 17, p. 1049, 1978.
+
+[6.46]. T. I. Kamins, thông tin riêng.
+
+[6.47]. H. Du, R. E Tressler and K. E. Spear, "Thermodynamics of the Si-N-O System and Kinetic Modeling of Oxidation of Si₃N₄," *J. Electrochem. Soc.*, vol. 136, p. 3210, 1989.
+
+[6.48]. M. M. Moslehi and K. C. Saraswat, "Thermal Nitridation of Si and SiO₂ for VLSI," *IEEE Trans. Elec. Dev.*, vol. ED-32, p. 106, 1985.
+
+[6.49]. M. Bartur and M-A. Nicolet, "Thermal Oxidation of Transition Metal Silicides on Si: Summary," *J. Electrochem. Soc.*, vol. 131, p. 371, 1984.
+
+[6.50]. J. E. E. Baglin, F. M. d'Heurle and C. S. Petersson, "Interface Effects in the Formation of Silicon Oxide on Metal Silicide Layers Over Silicon Substrates," *J. Appl. Phys.*, vol. 54, p. 1849, 1983.
+
+[6.51]. R. R. Razouk and B. E. Deal, "Dependence of Interface State Density on Silicon Thermal Oxidation Process Variables," *J. Electrochem. Soc.*, vol. 126, p. 1573, 1979.
+
+[6.52]. B. E. Deal, "The Current Understanding of Charges in the Thermally Oxidized Silicon Structure," *J. Electrochem. Soc.*, vol. 121, p. 198C, 1974.
+
+[6.53]. A. I. Akinwande and J. D. Plummer, "Quantitative Modeling of Si/SiO₂ Interface Fixed Charge I. Experimental Results and II. Physical Modeling," *J. Electrochem. Soc.*, vol. 134, p. 2565 and 2573, 1987.
+
+[6.54]. M. L. Reed and J. D. Plummer, "Chemistry of Si-SiO₂ Interface Trap Annealing," *J. Appl. Phys.*, vol. 63, p. 5776, 1988.
+
+[6.55]. K. L. Brower and S. M. Meyers, "Chemical Kinetics of Hydrogen and (111) Si-SiO₂ Interface Defects," *Appl. Phys. Lett.*, vol. 57, p. 162, 1990.
+
+[6.56]. G. J. Gerardi, E. H. Poindexter and P. J. Caplan, "Interface Traps and Pb Centers in Oxidized (100) Silicon Wafers," *Appl. Phys. Lett.*, vol. 49, p. 348, 1986.
+
+---
+
+## 6.9 Bài tập
+
+**6.1.** Một mẫu silicon hình cầu được cắt và đánh bóng từ một thỏi đơn tinh thể Czochralski và được oxy hóa trong lò oxy hóa nhiệt. Sau khi lấy quả cầu silicon ra khỏi lò, màu sắc được quan sát thấy thay đổi đáng kể trên bề mặt. Tại sao?
+
+**6.2.** Sử dụng Phương trình `6.1` và `6.2`, hãy giải thích tại sao các oxide mỏng hơn khoảng `50 nm` không có màu sắc đặc trưng nào gắn với chúng. Bạn không cần thực hiện bất kỳ tính toán nào. Chỉ cần giải thích lý do vật lý tại sao không có màu trong các oxide mỏng.
+
+**6.3.** Một cấu trúc `MIS` (I = điện môi) thực nghiệm được chế tạo bằng cách lắng đọng `Si₃N₄` (silicon nitride) trên một đế silicon. Nitride được lắng đọng bằng cách hướng một luồng silane và ammonia vào bề mặt theo phản ứng:
+
+---
+
+> **[Biểu thức hóa học]**
+>
+> $$
+> 3SiH_4 + 4NH_3 \rightarrow Si_3N_4 + 12H_2
+> $$
+
+---
+
+Một điện cực kim loại được lắng đọng và một đồ thị `C-V` được thực hiện như hình dưới. Một đồ thị `C-V` đại diện cũng được trình bày cho một cấu trúc giống hệt nhưng dùng `SiO₂` tăng trưởng nhiệt làm điện môi. Hãy giải thích sự dịch chuyển ngang của đường cong `C-V` của `Si₃N₄`.
+
+**6.4.** Hãy vẽ một đồ thị `C-V` `HF` cho một mẫu silicon loại `P`, tương tự như **Hình 6.9**. Hãy giải thích đồ thị của bạn dựa trên hành vi của lỗ trống và điện tử trong chất bán dẫn theo cách tương tự với thảo luận trong sách về **Hình 6.9**.
+
+**6.5.** Một cấu trúc `MOS` được chế tạo để thực hiện các phép đo `C-V` như trình bày dưới đây. Đồ thị `C-V` cho thấy kết quả nếu lớp khuếch tán `P+` KHÔNG hiện diện. Hãy phác thảo dạng dự kiến của đồ thị `C-V` khi có lớp khuếch tán `P+`. Giải thích.
+
+**6.6.** Trong một linh kiện `MOS` nhỏ, có thể có sự biến đổi thống kê trong `V_T` do sự khác biệt trong `Q_F` từ linh kiện này sang linh kiện khác. Trong một linh kiện tối thiểu công nghệ `0.13 µm` (diện tích cổng = `0.1 µm × 0.1 µm`) với oxide cổng `2.5 nm`, điện áp ngưỡng sẽ khác nhau bao nhiêu đối với các linh kiện có `0` hoặc `1` điện tích cố định trong oxide cổng?
+
+**6.7.** Tại sao oxy hóa bằng hơi nước nhanh hơn oxy hóa khô?
+
+**6.8.** Trong điều kiện nào thì tốc độ tăng trưởng nhiệt của `SiO₂` tỉ lệ thuận với thời gian?
+
+**6.9.** Theo mô hình Deal-Grove, động học oxy hóa bắt đầu theo tuyến tính và trở thành parabol khi quá trình oxy hóa tiến triển. Hãy tính độ dày oxide tại đó sự chuyển tiếp này diễn ra và vẽ đồ thị theo nhiệt độ oxy hóa.
+
+**6.10.** Độ dày oxide tại đó có sự chuyển tiếp từ tốc độ tuyến tính sang parabol có thay đổi không nếu chúng ta thực hiện oxy hóa ở áp suất `20 Atmosphere` thay vì `1 Atmosphere`?
+
+**6.11.** Một linh kiện `MOS` yêu cầu oxide cổng dày `10 nm ± 0.5 nm`. Giả sử quá trình tăng trưởng được thực hiện ở `900°C` trong `O₂` khô. Bỏ qua mọi hiệu ứng của sự tăng trưởng ban đầu bất thường. Hãy rút ra một biểu thức đơn giản cho độ nhạy của độ dày oxide theo nhiệt độ tăng trưởng `(dx/dT)`. Đánh giá biểu thức này để xem nhiệt độ lò phải được kiểm soát tốt đến mức nào để đạt được `10 nm ± 0.5 nm` ở `900°C`.
+
+**6.12.** Độ dày oxide xấp xỉ (dùng đồ thị) sau một quá trình oxy hóa khô `100 phút` tiếp theo là oxy hóa `H₂O` `35 phút` ở `900°C` là bao nhiêu?
+
+**6.13.** Một wafer silicon được phủ bởi một màng `SiO₂` dày `0.3 µm`.
+
+1. Thời gian cần thiết để tăng độ dày thêm `0.5 µm` bằng oxy hóa trong `H₂O` ở `1200°C` là bao nhiêu?
+2. Lặp lại cho oxy hóa trong `O₂` khô ở `1200°C`.
+
+**6.14.** Giả sử một quá trình oxy hóa được dùng trong đó các wafer `(100)` được oxy hóa trong `O₂` trong `3 giờ` ở `1100°C`, tiếp theo là `2 giờ` trong `H₂O` ở `900°C`, tiếp theo là `2 giờ` trong `O₂` ở `1200°C`. Hãy dùng **Hình 6.19** và **6.20** trong sách để ước tính độ dày oxide cuối cùng thu được. Giải thích cách bạn sử dụng các hình này để tính toán kết quả của một quá trình oxy hóa nhiều bước như thế này.
+
+**6.15.** Cấu trúc dưới đây được tạo thành bằng cách oxy hóa một wafer silicon (`x₀ = 200 nm`), và sau đó sử dụng các kỹ thuật che mặt nạ và khắc tiêu chuẩn để loại bỏ `SiO₂` ở vùng trung tâm. Một bước pha tạp `N+` sau đó được dùng để tạo ra cấu trúc như trình bày. Cấu trúc này tiếp theo được đặt vào lò oxy hóa và oxy hóa ở `900°C` trong `H₂O`. Oxide sẽ tăng trưởng nhanh hơn trên vùng `N+` so với trên đế pha tạp nhẹ. Giả sử `B/A` được tăng cường `4` lần trên vùng `N+`. Liệu oxide đang tăng trưởng trên vùng `N+` có bao giờ bắt kịp về độ dày với oxide kia không? Nếu có, khi nào và ở độ dày bao nhiêu? Hãy dùng mô hình Deal-Grove cho động học oxy hóa.
+
+**6.16.** Một rãnh rộng `1 µm` được khắc trong một wafer silicon `<100>`, sao cho các mặt bên của rãnh là các mặt phẳng `<110>`. Một lần cấy ion góc nghiêng được thực hiện, pha tạp `N+` vào mặt vách bên và do đó tăng cường hằng số tốc độ tuyến tính lên `4` lần. Cấu trúc này sau đó được oxy hóa trong hơi nước ở `1100°C`. Tại thời điểm nào trong quá trình oxy hóa, rãnh sẽ được lấp đầy bằng `SiO₂`? Giả sử các hệ số oxy hóa thích hợp có tỷ lệ như sau: `[(111) : (110) : (100) --- (1.68 : 1.2 : 1.0)]`.
+
+**6.17.** Một lớp oxide đồng đều dày `0.4 µm` được khắc chọn lọc để lộ bề mặt silicon ở một số vị trí trên bề mặt wafer. Một lần oxy hóa thứ hai ở `1000°C` trong `H₂O` tăng trưởng `0.2 µm` trên silicon trần.
+
+(a) Hãy phác thảo mặt cắt của `SiO₂` ở tất cả các vị trí trên wafer và vị trí của mặt tiếp xúc `Si/SiO₂`.
+
+(b) Hình ảnh của bạn có giống nhau không nếu lần oxy hóa thứ hai tăng trưởng `0.2 µm` ở một nhiệt độ khác? Giải thích.
+
+**6.18.** Silicon-on-Insulator hay `SOI` là một vật liệu đế mới đang được xem xét cho các mạch tích hợp tương lai. Cấu trúc, như trình bày dưới đây, bao gồm một lớp silicon đơn tinh thể mỏng trên một đế cách điện (`SiO₂`). Silicon bên dưới `SiO₂` cung cấp hỗ trợ cơ học cho cấu trúc. Một trong những lý do loại vật liệu này đang được xem xét là vì các tiếp giáp có thể được khuếch tán hoàn toàn qua lớp silicon mỏng đến `SiO₂` bên dưới. Điều này làm giảm điện dung tiếp giáp và tạo ra các mạch nhanh hơn. Cách ly cũng dễ đạt được trong vật liệu này, vì lớp `Si` mỏng có thể được oxy hóa hoàn toàn, tạo ra các linh kiện hoàn toàn được bao quanh bởi `SiO₂`. Một quá trình `LOCOS` được dùng để oxy hóa cục bộ xuyên qua silicon như trình bày ở bên phải dưới đây. Giả sử quá trình oxy hóa `LOCOS` được thực hiện trong `H₂O` ở `1000°C`, cần bao lâu để oxy hóa xuyên qua lớp silicon `0.3 µm`? Hãy tính toán một đáp số số học bằng cách dùng mô hình Deal-Grove.
+
+**6.19.** Khi các linh kiện `MOS` được thu nhỏ về kích thước nhỏ hơn, các oxide cổng phải được giảm về độ dày.
+
+a) Khi độ dày oxide cổng giảm, các linh kiện `MOS` trở nên nhạy cảm hơn hay ít nhạy cảm hơn với nhiễm bẩn sodium? Giải thích.
+
+b) Khi độ dày oxide cổng giảm, điều gì phải được thực hiện đối với pha tạp đế (hoặc cách khác là cấy ion `V_{TH}` kênh) để duy trì cùng `V_{TH}`?
+
+**6.20.** Một lớp `SiO₂` được tăng trưởng nhiệt ở `1000°C` sử dụng chu kỳ oxy hóa khô-ướt-khô `10-20-30 phút`. Sau khi lấy wafer `(100)` ra khỏi lò, màu sắc của oxide được quan sát thấy là màu nâu nhạt (`tan`). Điều này có đúng không? Nếu không, hãy gợi ý điều gì có thể đã xảy ra sai trong thí nghiệm.
+
+**6.21.** Trong ví dụ mô phỏng trong **Hình 6.35**, sự khác biệt về tốc độ oxy hóa giữa các vùng pha tạp nặng và pha tạp nhẹ rõ rệt hơn nhiều ở nhiệt độ thấp (ví dụ `800°C`) so với ở nhiệt độ cao (ví dụ `1000°C`). Hãy giải thích về mặt vật lý tại sao điều này xảy ra bằng cách sử dụng các cơ chế trong mô hình Deal-Grove và hành vi của nồng độ khuyết tật điểm (`V`) theo nhiệt độ.
+
+**6.22.** Cấu trúc dưới đây được cấy ion oxy với liều `1 × 10¹⁸ cm⁻²` ở `200 KeV`. Lần cấy này đặt oxy được cấy vào trong một profile có tâm ở `0.35 µm` (`R_P = 0.35 µm`) bên dưới bề mặt. Phía bên trái được che khỏi lần cấy. Sau lần cấy, một bước ủ nhiệt độ cao được thực hiện để tạo thành `SiO₂` hợp thức trong một lớp vùi ở phía bên phải. Hãy tính các kích thước cấu trúc ở phía bên phải sau lần ủ này (độ dày oxide, khoảng cách từ bề mặt và tất cả các kích thước quan trọng khác). Bạn có thể giả sử mật độ nguyên tử silicon là `5 × 10²² nguyên tử cm⁻³`, và các mặt phẳng mạng tinh thể `Si` cách nhau `0.25 nm`. Hãy nêu rõ bất kỳ giả thiết nào khác mà bạn đưa ra.
+
+**6.23.** Là một phần của quy trình công nghệ `IC`, một lớp `SiO₂` `CVD` dày `1.0 µm` được lắng đọng trên một đế silicon `<100>`. Cấu trúc này sau đó được oxy hóa ở `900°C` trong `60 phút` trong môi trường `H₂O`. Độ dày `SiO₂` cuối cùng sau quá trình oxy hóa này là bao nhiêu? Hãy tính toán một đáp số, không dùng các đồ thị oxy hóa trong sách.
 
 
 
