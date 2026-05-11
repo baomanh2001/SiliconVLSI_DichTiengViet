@@ -2835,6 +2835,140 @@ Các **Hình 6.23** và **6.24** so sánh các dự đoán của một số mô 
 
 **Hình 6.23:** So sánh ba mô hình oxy hóa cho oxy hóa `O₂` khô `1 atm` ở `800°C`.
 
+---
+Ở `1000°C` (**Hình 6.24**), các sự khác biệt trong các mô hình ở chế độ rất mỏng ít rõ ràng hơn vì các oxide dày hơn nhiều mọc ở nhiệt độ cao hơn trên cùng thang thời gian. Việc đưa vào hay không đưa vào `τ` trong mô hình Deal-Grove cũng tạo ra ít sự khác biệt hơn, vì cùng lý do. Đối với các tham số cụ thể được chọn cho đồ thị này, mô hình Reisman và cộng sự phân kỳ khỏi các dự đoán của các mô hình khác đối với các oxide dày hơn.
+
+Tóm lại, nhiều mô hình khác cho động học oxy hóa đã được đề xuất, tất cả được thúc đẩy bởi những thiếu sót trong mô hình tuyến tính-parabol. Tuy nhiên, không có mô hình nào trong số này đạt được sự chấp nhận rộng rãi như mô hình tuyến tính-parabol. Hầu hết các nỗ lực mô hình hóa ngày nay sử dụng mô hình Deal-Grove làm điểm khởi đầu và sau đó bổ sung vào hoặc sửa đổi nó khi cần thiết để bao gồm các hiệu ứng mà bản thân mô hình cơ bản không bao gồm hoặc không mô hình hóa tốt. Chúng ta sẽ xem xét nhiều hiệu ứng trong số này trong các phần dưới đây.
+
+---
+
+**Hình 6.24:** So sánh ba mô hình oxy hóa cho oxy hóa `O₂` khô `1 atm` ở `1000°C`. Các đường nét đứt là mô hình Deal-Grove.
+
+---
+
+### 6.5.3 Động học mọc SiO₂ oxide mỏng
+
+Các nghiên cứu oxy hóa đầu tiên gợi ý rằng có điều gì đó bất thường về sự mọc ban đầu của các oxide trong `O₂` khô trên các wafer silicon trần. Deal và Grove trong bài báo gốc của họ mô tả mô hình tuyến tính-parabol, đã quan sát thấy rằng mô hình không phù hợp với `20 nm` đầu tiên của sự mọc trong `O₂` khô và chúng ta đã thấy ví dụ về điều này trong **Hình 6.23**. Họ quy tốc độ mọc nhanh mà họ quan sát thực nghiệm trong chế độ này cho hiệu ứng của một vùng điện tích không gian trong oxide, được thiết lập bởi các ion oxy đang khuếch tán vào trong (có lẽ là `O₂⁻`). Nếu chất khuếch tán chính thực sự là ion, thì các hạt tải điện dương cũng sẽ hiện diện để duy trì tính trung hòa điện. Hai chất `O₂⁻` và lỗ trống (`h⁺`) sẽ khuếch tán như một cặp liên kết. Tuy nhiên, các lỗ trống khuếch tán nhanh hơn nhiều so với `O₂⁻` và có xu hướng di chuyển về phía trước. Điều này tạo ra một điện trường do sự phân ly điện tích, điện trường này có tác dụng giữ hai chất lại với nhau. Tác động của điện trường này là làm chậm các lỗ trống và tăng tốc các ion `O₂⁻`. Khuếch tán liên kết này được quan sát bất cứ khi nào một chất tích điện khuếch tán. Khoảng cách mà điện trường tồn tại vào cỡ độ dài Debye ngoại tại, được cho bởi
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> L_D = \sqrt{\frac{kT\varepsilon_S}{2q^2 C^*}}
+> \tag{6.36}
+> $$
+
+---
+
+Thay thế các con số cho các oxy hóa `O₂`, cho độ dài Debye khoảng `15 nm`, phù hợp với chiều dày mà sự mọc nhanh xảy ra. Đối với các oxy hóa `H₂O`, `C*` cao hơn khoảng `10³` lần, dẫn đến độ dài Debye dưới `1 nm` ngay cả khi một chất tích điện tham gia vào các oxy hóa nước. Deal và Grove đã sử dụng quan sát này để giải thích tại sao sự mọc nhanh ban đầu bất thường không quan sát được trong các oxy hóa `H₂O`. Tuy nhiên, khó khăn với giải thích này là giả thiết ban đầu rằng `O₂⁻` là chất tham gia vào sự vận chuyển chất oxy hóa, dựa trên các thí nghiệm được thực hiện bởi Jorgenson vào đầu những năm `1960` `[6.2]`. Các kết quả này về sau phần lớn đã bị bác bỏ.
+
+Nếu `O₂` và `H₂O` trung hòa là các chất khuếch tán chi phối, các hiệu ứng điện tích không gian không thể chịu trách nhiệm cho tốc độ mọc ban đầu cao bất thường quan sát được trong `O₂`. Điều này đã dẫn đến một số lượng lớn các đề xuất mới trong hai mươi năm qua, tất cả đều cố gắng giải thích động học oxide mỏng. Vẫn còn nhiều tranh luận về cơ chế vật lý chịu trách nhiệm; chưa có quan điểm đồng thuận nào xuất hiện. Vấn đề đã có tầm quan trọng mới gần đây, vì các oxide cổng `MOS` hiện nay thường được mọc với chiều dày trong khoảng "bất thường" này. Đây là ví dụ về ứng dụng công nghiệp vượt qua sự hiểu biết khoa học cơ bản. Từ quan điểm công nghiệp, điều quan trọng hơn là có thể mọc các lớp oxide mỏng này có thể tái tạo và đồng đều, với các tính chất điện tốt, hơn là hiểu các nguyên lý vật lý chi phối. Tuy nhiên, đây đôi khi là một cách tiếp cận nguy hiểm vì thiếu hiểu biết vật lý có thể có nghĩa là các vấn đề sản xuất phát sinh có thể không được hiểu và có thể phải được giải quyết bằng các thí nghiệm thử và sai. Đây là lý do tại sao rất nhiều nỗ lực đã được đầu tư để hiểu động học mọc oxide mỏng.
+
+Một trong những yếu tố gây nhầm lẫn cho việc phát triển mô hình và diễn giải dữ liệu trong chế độ mỏng là các quy trình làm sạch hóa học trước khi oxy hóa đã được chứng minh là ảnh hưởng đáng kể đến động học mọc oxide. Chúng ta đã thảo luận việc làm sạch wafer và một số hiệu ứng này chi tiết trong Chương `4` (**Hình 4.3**). Hầu hết các nghiên cứu thực nghiệm về động học mọc mỏng đã không kiểm soát cẩn thận tham số này với kết quả là dữ liệu về chiều dày oxide theo thời gian thay đổi từ thí nghiệm này sang thí nghiệm khác ngay cả khi cùng nhiệt độ và các tham số khác đã được sử dụng. Điều này làm cho việc phát triển mô hình rất khó khăn.
+
+Có lẽ nghiên cứu thực nghiệm toàn diện nhất từng được báo cáo là của Massoud và cộng sự `[6.18]`. Họ báo cáo rằng sự mọc trong chế độ mỏng có thể được khớp bằng một bổ sung vào mô hình Deal-Grove được cho bởi
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> \frac{dx_O}{dt} = \frac{B}{2x_O + A} + C\exp\!\left(-\frac{x_O}{L}\right)
+> \tag{6.37}
+> $$
+>
+> trong đó:
+>
+> $$
+> C = C_0\exp\!\left(-\frac{E_A}{kT}\right)
+> $$
+
+---
+
+và `C₀ ≈ 6 × 10⁹ nm min⁻¹`, `EA ≈ 2,35 eV` và `L ≈ 7 nm`. Tất cả các con số này áp dụng cho cả đế silicon hướng `(111)` lẫn `(100)`. Số hạng đầu tiên trong Phương trình `6.37` là tất nhiên mô hình Deal-Grove. Số hạng thứ hai đại diện cho một cơ chế oxy hóa bổ sung quan trọng trong vài chục `nm` đầu tiên nhưng giảm theo hàm mũ với độ dài suy giảm khoảng `7 nm`. Với sự bổ sung này vào mô hình Deal-Grove, các dự đoán của mô hình này cũng khớp tốt với dữ liệu trên toàn bộ khoảng chiều dày. Trong **Hình 6.24**, chẳng hạn, Phương trình `6.37` cung cấp một đường cong `xO` theo `t` phù hợp với các mô hình Han và Helms và Reisman và cộng sự. Do đó có một số cách để mô hình hóa chế độ mỏng `O₂` khô. Các chương trình mô phỏng quy trình như `SUPREM IV` nói chung đã triển khai Phương trình `6.37` thay vì các lựa chọn thay thế được cho bởi các Phương trình `6.31` và `6.32` vì các mô hình cho nhiều hiệu ứng oxy hóa khác cũng đã được liên kết với công thức Deal-Grove cơ bản như chúng ta sẽ thấy sau.
+
+Nhiều cơ chế vật lý đã được đề xuất cho chế độ mỏng. Deal và Grove đề xuất khuếch tán liên kết với các lỗ trống như đã thảo luận ở trên. Các đề xuất khác bao gồm xem xét vai trò của phát xạ nhiệt điện tử (`thermionic emission`) của electron từ silicon vào `SiO₂` `[6.19]`, các vi lỗ hay kênh trong oxide cho phép sự vận chuyển chất oxy hóa song song khi oxide mỏng `[6.20]`, các phản ứng `O₂` và `O` song song tại mặt tiếp xúc `Si/SiO₂` `[6.15]`, các lớp chặn gần mặt tiếp xúc `Si/SiO₂` hình thành khi oxide mọc và làm chậm tốc độ đối với các lớp dày hơn `[6.21]`, và một lớp bề mặt silicon cung cấp thêm các vị trí cho phản ứng oxy hóa trong các giai đoạn ban đầu của nó `[6.18]`. Không có mô hình nào trong số này được chứng minh là rõ ràng đúng và không có mô hình nào đạt được sự chấp nhận rộng rãi. Chúng ta được để lại với một số biểu thức thực nghiệm có thể được sử dụng để mô hình hóa động học chế độ mỏng, nhưng không có giải thích vật lý hoàn toàn thỏa đáng. Các công việc bổ sung trong tương lai có thể giúp làm rõ một số vấn đề này.
+
+---
+
+### 6.5.4 Sự phụ thuộc của động học mọc vào áp suất
+
+Mô hình tuyến tính-parabol dự đoán rằng tốc độ mọc oxide phải tỷ lệ thuận trực tiếp với áp suất chất oxy hóa. Phương trình `6.13` cho thấy điều này. Nếu Định luật Henry đúng và nồng độ chất oxy hóa ngay bên trong oxide tại mặt tiếp xúc khí/`SiO₂` là `C*` tỷ lệ thuận với `PG`, thì cả `B` lẫn `B/A` đều tỷ lệ thuận với `PG` từ các Phương trình `6.23` và `6.24`. Do đó, tốc độ mọc oxide phải tỷ lệ thuận với `PG`.
+
+Các phép đo thực nghiệm đã chỉ ra rằng trong các oxy hóa `H₂O`, dự đoán này là đúng. Các áp suất dưới khí quyển `[6.6]` và cao hơn đáng kể so với khí quyển `[6.22]` đã được nghiên cứu. Các kết quả này gợi ý rằng các giả thiết được đưa ra trong mô hình tuyến tính-parabol là đúng đối với oxy hóa `H₂O`. Tuy nhiên, tình huống ít rõ ràng hơn một chút đối với oxy hóa `O₂` khô. Một khối lượng đáng kể dữ liệu đã nhất quán chỉ ra rằng để mô hình hóa các kết quả `O₂` khô bằng một phương trình tuyến tính-parabol, `B ∝ P` và `B/A ∝ Pⁿ` với `0,5 < n < 1`. Sự phụ thuộc áp suất này không nhất quán với mô hình tuyến tính-parabol. Chúng ta chỉ có thể kết luận rằng mô hình tuyến tính-parabol phải không đầy đủ. Trong bối cảnh của mô hình đó, chúng ta có thể suy ra rằng vì `B ∝ P`, thì `C* ∝ P` từ Phương trình `6.20`. Nếu `B/A` không tỷ lệ tuyến tính với `P`, thì từ Phương trình `6.21`, `kS` phải phụ thuộc vào `P` theo cách phi tuyến.
+
+Đã có một số nỗ lực sửa đổi mô hình Deal-Grove để giải thích các kết quả thực nghiệm này. Ghez và van der Meulen (Mục `6.5.2`) đã cố gắng mở rộng mô hình tuyến tính-parabol để bao gồm cả `O` và `O₂` phản ứng tại mặt tiếp xúc `Si/SiO₂`. Mô hình này có thể giải thích sự phụ thuộc áp suất quan sát được vì một phản ứng dựa trên `O` sẽ biến thiên như `P⁰·⁵` và một phản ứng `O₂` sẽ biến thiên như `P¹·⁰`. Một phản ứng hỗn hợp có thể cho bất kỳ giá trị nào giữa hai giới hạn này. Tuy nhiên, mô hình này chứa nhiều tham số và nó chưa được khớp với một dải rộng dữ liệu oxy hóa. Kết quả là, nó không thể dễ dàng được sử dụng ngày nay để mô hình hóa toàn bộ dải động học mọc `O₂`. Gần đây hơn, Hu `[6.23]` đã cố gắng xử lý phản ứng mặt tiếp xúc `O/O₂` song song theo nghĩa của một mô hình hóa hấp phụ (`chemisorption model`). Các nỗ lực khác để giải thích sự phụ thuộc áp suất của `B/A` đã rời xa mô hình Deal-Grove hơn nhiều. Hầu như tất cả các nỗ lực này đều dựa trên một phản ứng mặt tiếp xúc `Si/SiO₂` được sửa đổi. Không có mô hình nào trong số này tìm được sự chấp nhận rộng rãi.
+
+Thiếu một mô hình nguyên lý đầu tiên được chấp nhận rộng rãi để giải thích sự phụ thuộc áp suất của động học mọc `O₂`, điều tốt nhất chúng ta có thể làm ngày nay để mô hình hóa các hiệu ứng này là đơn giản sử dụng mô hình Deal-Grove với các hiệu chỉnh sau.
+
+---
+
+> **[Công thức toán]**
+>
+> Đối với `H₂O`:
+>
+> $$
+> \frac{B}{A} = \left(\frac{B}{A}\right)^i P \qquad B = (B)^i P
+> \tag{6.38}
+> $$
+>
+> Đối với `O₂`:
+>
+> $$
+> \frac{B}{A} = \left(\frac{B}{A}\right)^i P^n \qquad B = (B)^i P \qquad (n \approx 0.7\text{–}0.8)
+> \tag{6.39}
+> $$
+
+---
+
+trong đó các chỉ số trên `i` đề cập đến các giá trị tương ứng ở `1 atm`. Sự phụ thuộc áp suất `P⁰·⁸` tương tự cũng đã được ghi nhận trong chế độ mỏng (`< 20 nm`). Điều này có thể được đưa vào Phương trình `6.37` bằng cách đặt `C ∝ P⁰·⁸`. Độ dài suy giảm `L` trong phương trình đó dường như không có sự phụ thuộc áp suất đáng kể nào.
+
+Các **Hình 6.25** và **6.26** minh họa các tác động của các mô hình áp suất này lên động học oxy hóa, sử dụng mô hình Deal-Grove và các Phương trình `6.38` và `6.39`, không có mô hình oxide mỏng bổ sung. Lưu ý rằng đối với các áp suất dưới `1 atm`, chiều dày oxide thực sự tăng lên bởi sự phụ thuộc áp suất bán tuyến tính của `B/A`, trong khi điều ngược lại là đúng đối với các áp suất trên `1 atm`. Các bộ mô phỏng quy trình như `SUPREM IV` nói chung triển khai các phương trình như `(6.38)` và `(6.39)` để mô hình hóa các hiệu ứng này.
+
+---
+
+**Hình 6.25:** Oxy hóa ở `0,1 atm` trong `O₂` khô sử dụng mô hình Deal-Grove. Các đường nét liền tương ứng với `B ∝ P` và `B/A ∝ P`. Các đường nét đứt tương ứng với `B ∝ P` và `B/A ∝ P⁰·⁸`.
+
+---
+
+**Hình 6.26:** Oxy hóa ở `10 atm` trong `O₂` khô sử dụng mô hình Deal-Grove. Các đường nét liền tương ứng với `B ∝ P` và `B/A ∝ P`. Các đường nét đứt tương ứng với `B ∝ P` và `B/A ∝ P⁰·⁸`.
+
+---
+
+### 6.5.5 Sự phụ thuộc của động học mọc vào hướng tinh thể
+
+Như chúng ta đã thấy trong Chương `3`, lịch sử có hai hướng tinh thể chính được sử dụng trong chế tạo `IC`. Các tinh thể `(111)` được sử dụng hầu như độc quyền vào những năm `1960`. Tuy nhiên, khi trở nên rõ ràng rằng các tính chất điện của mặt tiếp xúc `Si/SiO₂` vượt trội hơn trên bề mặt tinh thể `(100)`, sự chuyển dịch dần dần sang hướng đó bắt đầu, với kết quả là các wafer `(100)` chiếm ưu thế ngày nay. Các nghiên cứu oxy hóa đã điều tra các hiệu ứng hướng thường tập trung vào hai loại tinh thể này và đã được chứng minh nhiều lần rằng tốc độ mọc oxy hóa nhanh hơn trên các bề mặt `(111)` so với trên các bề mặt `(100)`. Trong những năm gần đây, điều quan trọng là phải hiểu các hiệu ứng hướng trên sự oxy hóa tổng quát hơn vì nhiều cấu trúc hiện nay sử dụng các rãnh khắc và các vùng silicon có hình dạng khác như một phần của cấu trúc của chúng.
+
+Ngay cả trước khi phát triển mô hình tuyến tính-parabol, đã quan sát thấy rằng hướng tinh thể ảnh hưởng đến tốc độ oxy hóa. Ligenza năm `1961` `[6.24]` gợi ý rằng hiệu ứng có thể là do sự khác biệt về mật độ bề mặt của các nguyên tử silicon trên các mặt tinh thể khác nhau. Ông lập luận rằng vì các nguyên tử silicon là cần thiết cho quá trình oxy hóa, các mặt phẳng tinh thể có mật độ nguyên tử cao hơn nên oxy hóa nhanh hơn. Ông tiếp tục lập luận rằng không chỉ đơn giản là số nguyên tử `cm⁻²` là quan trọng, mà còn là số liên kết vì cần phải phá vỡ các liên kết `Si-Si` để quá trình oxy hóa tiến hành.
+
+Ligenza đã tính toán số liên kết "có sẵn" `cm⁻²` trên các bề mặt silicon khác nhau và kết luận rằng tốc độ oxy hóa trong `H₂O` phải theo thứ tự `(111) > (100)`. Đây thực ra là điều quan sát được thực nghiệm trong cả `H₂O` lẫn `O₂` khô. Đối với hầu hết các điều kiện oxy hóa quan tâm trong công nghệ silicon, hai hướng này đại diện cho giới hạn trên và giới hạn dưới của tốc độ oxy hóa. Đối với các oxide rất mỏng được mọc ở áp suất `O₂` rất thấp trong `O₂` khô, có một số bằng chứng rằng tốc độ `(110)` trở nên nhanh nhất `[6.25]`. Điều này cũng dường như là trường hợp ở áp suất rất cao và nhiệt độ thấp trong `H₂O` `[6.24]`.
+
+Chúng ta có thể kết hợp các hiệu ứng này vào mô hình tuyến tính-parabol theo cách sau. Trừ có lẽ trong vùng rất gần mặt tiếp xúc `Si/SiO₂`, oxide mọc trên silicon là vô định hình; tức là, nó không kết hợp bất kỳ thông tin nào về cấu trúc tinh thể silicon bên dưới. Vì điều này, hằng số tốc độ parabol `B` không nên phụ thuộc vào hướng vì `B` đại diện cho sự khuếch tán chất oxy hóa qua `SiO₂`. Nếu cấu trúc oxide không liên quan đến đế bên dưới, thì không nên có hiệu ứng hướng tinh thể nào đối với `B`. Đây thực ra là điều được tìm thấy thực nghiệm khi dữ liệu động học được phân tích trong bối cảnh mô hình tuyến tính-parabol và các hằng số tốc độ `B` và `B/A` được trích xuất. Mặt khác, `B/A` nên phụ thuộc vào hướng vì nó liên quan đến phản ứng tại mặt tiếp xúc `Si/SiO₂`. Phản ứng này chắc chắn liên quan đến các nguyên tử `Si` và do đó nên bị ảnh hưởng bởi số lượng các vị trí phản ứng sẵn có. Do đó chúng ta có thể kết hợp các hiệu ứng hướng như sau:
+
+---
+
+> **[Công thức toán]**
+>
+> $$
+> \left(\frac{B}{A}\right)_{111} = 1.68\left(\frac{B}{A}\right)_{100}
+> \tag{6.40}
+> $$
+
+---
+
+Tất cả các hướng khác thường nằm giữa hai cực này và các giá trị `B` giống nhau đối với tất cả các hướng. Giá trị `B/A` của `(110)` thường được lấy bằng `1,45` lần tốc độ `(100)` mặc dù lượng dữ liệu sẵn có không đủ để chắc chắn về giá trị này.
+
+Một ví dụ về mô phỏng cho thấy các hiệu ứng hướng được trình bày trong **Hình 6.27**. Một rãnh silicon đầu tiên được khắc sâu `2 µm` và sau đó được oxy hóa. Lưu ý oxide dày hơn dọc theo bề mặt vách `(110)` so với bề mặt wafer `(100)` và đáy rãnh. Thực ra, phần thú vị nhất của mô phỏng này là ở góc rãnh, được trình bày ở bên phải, nơi các hiệu ứng `2D` chiếm ưu thế. Chúng ta sẽ thảo luận các vấn đề này trong Mục `6.5.7`.
+
+---
+
+**Hình 6.27:** Ví dụ về mô phỏng oxy hóa liên quan đến các hiệu ứng hướng sử dụng bộ mô phỏng `ATHENA` `[6.12]`. Các bề mặt trên và dưới của rãnh khắc là các bề mặt `(100)`. Vách rãnh là một bề mặt `(110)`. Oxy hóa là `30 phút` ở `900°C` trong `H₂O`.
+
+---
+
+Cuối cùng, có thể thú vị khi suy đoán về lý do tại sao hiệu ứng hướng dường như thay đổi đối với các oxide rất mỏng được mọc ở áp suất `O₂` riêng phần thấp và cũng đối với các oxide hơi nước áp suất cao được mọc ở nhiệt độ thấp. Hai điều kiện này đại diện cho hai cực của tốc độ mọc oxide, một cực cực kỳ chậm và cực kia cực kỳ nhanh. Trong trường hợp trước, chúng ta đã thấy rằng động học mọc khác đối với các oxide mỏng được mọc trong `O₂` khô. Vì cơ chế dường như khác nhau trong chế độ này, có lẽ không quá ngạc nhiên khi các hiệu ứng khác như sự phụ thuộc hướng cũng thay đổi. Trong trường hợp các oxide hơi nước áp suất cao, Ligenza quan sát thấy bề mặt `(100)` oxy hóa nhanh hơn bề mặt `(111)` ở `800°C` và thấp hơn. Các thí nghiệm này được thực hiện ở áp suất lên đến `150 atm`, vì vậy tốc độ mọc cực kỳ cao. Chúng ta sẽ thấy trong Mục `6.5.7` về động học mọc `2D` rằng sự giải phóng các ứng suất được tạo ra trong các lớp `SiO₂` diễn ra thông qua dòng chảy nhớt đàn hồi (`viscoelastic flow`) của lớp oxide. Về cơ bản, thủy tinh chảy khi được mọc để giải phóng các ứng suất do sự khác biệt thể tích giữa oxide và silicon từ đó oxide được mọc. Ở nhiệt độ thấp, sự giải phóng này khó khăn hơn vì oxide không thể chảy dễ dàng. Nó cũng khó khăn hơn nếu oxide đang mọc rất nhanh vì có ít thời gian hơn để oxide giải phóng trước khi các lớp mới mọc. Trong các thí nghiệm của Ligenza, do đó có thể là các ứng suất rất cao đã tích lũy trong các oxide đang mọc. Đây có thể là nguồn gốc của các hiệu ứng hướng bất thường mà Ligenza quan sát. Các ứng suất tích lũy và dòng oxide để giải phóng các ứng suất đó hoàn toàn có thể phụ thuộc vào hướng tinh thể đế. Có lẽ các công việc tương lai sẽ giải quyết các vấn đề này.
+
 
 
 
